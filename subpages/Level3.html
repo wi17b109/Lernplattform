@@ -1,0 +1,160 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+
+<h1>Level 3: Berechnungen mit Integer</h1>
+<p>
+  Zahlen können nicht nur direkt in die Variable gespeichert werden, es kann auch eine Berechnung durchgeführt werden, dessen Ergebnis dann in einen Integer gespeichert wird.
+  <br /> Es gibt die Operationen Addition, Subtraktion, Multiplikation, Division und Modulo. Je nach Operation sollte man als Datentyp jedoch float oder double verwenden, da bei der Berechnung Kommazahlen rauskommen können.
+  </p>
+<p>
+<b>
+  Addition:
+</b><br />
+  int a = 3 + 3;
+</p>
+<p>
+  <b>
+    Subtraktion:
+    </b><br />
+  int a = 5 - 3;
+  </p>
+<p>
+  <b>
+    Multiplikation:
+  </b><br />
+  int a = 3 * 3;
+  </p>
+  <p>
+    <b>
+      Division:
+    </b><br />
+    int a = 6 / 2;
+    </p>
+<p>
+  <b>
+    Modulo:
+  </b>
+  gibt den Restwert einer Division zurück<br />
+  double a = 8 % 3;
+  </p>
+  <br />
+<b>
+  Aufgabe 1
+</b>
+<p>
+  Addiere 5 und 6 und gib das Ergebnis aus.
+  </p>
+  <b>
+    Aufgabe 2
+  </b>
+<p>
+  Subtrahiere 93 von 106 und gib das Ergebnis aus.
+  </p>
+<b>
+Aufgabe 3
+</b>
+<p>
+  Multipliziere 4 mit 8 und gib das Ergebnis aus.
+  </p>
+<b>
+  Aufgabe 4
+</b>
+<p>
+  Dividiere 25 durch 5 und gib das Ergebnis aus.
+</p>
+<b>
+  Aufgabe 5
+</b>
+<p>
+  Gib den Restwert der Division 19 durch 3 aus.
+</p>
+
+																		<div id="codeeditor"></div>
+<script>
+
+var editor = CodeMirror(document.getElementById("codeeditor"),{
+	value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n//Your code goes here							\n			}			\n		}		\n	}',
+	mode : "clike",
+	theme : "ambiance"
+});
+</script>
+<button id="run">Run</button>
+
+<script>
+$(document).ready(function(){
+		$("button").click(function(){
+
+		var to_compile = {
+			"LanguageChoice": "1",
+			"Program": editor.getValue(),
+			"Input": "",
+			"CompilerArgs" : ""
+		};
+
+		            const url = 'https://rextester.com/rundotnet/api';
+		// Ajax call um Code zu compilen
+		$.ajax({ url, type: 'POST', data: to_compile })
+		  .done(function (data) {
+		    whatIWantToDoWithMyResponseWhenItSucceeds(data);
+		  })
+		  .fail(function (data, err) {
+		    whatIWantToDoWithMyResponseWhenItFails(data);
+		  });
+		// In success case, use compiled result
+		function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+		  var areaContent = editor.getValue();
+		  console.log(areaContent);
+		  console.log('Yaay Success');
+		  console.log(response);
+		  console.log(response.Result);
+
+			  if (response.Result.includes('11') && areaContent.includes('5') && areaContent.includes('6')) { // Desired result
+		   // desired change, if the result contains the desired result
+		    console.log("Alright");
+				alert("Aufgabe 1 gelöst!"); // confirmation
+		  } else if (response.Result.includes('13') && areaContent.includes('93') && areaContent.includes('106')) { // Desired result
+
+				// Desired result
+				alert("Aufgabe 2 gelöst!"); // confirmation
+				console.log(editor.value);
+				console.log(areaContent);
+
+			} else if (response.Result.includes('32') && areaContent.includes('4') && areaContent.includes('8')) { // Desired result
+				alert("Aufgabe 3 gelöst!"); // confirmation
+		 } else if (response.Result.includes('5') && areaContent.includes('25') && areaContent.includes('5')) { // Desired result
+       alert("Aufgabe 3 gelöst!"); // confirmation
+    }  else if (response.Result.includes('1') && areaContent.includes('19') && areaContent.includes('3') && areaContent.includes('%')) { // Desired result
+      alert("Aufgabe 3 gelöst!"); // confirmation
+   } else {
+		    console.log("Come on");
+        alert("Leider nicht korrekt!"); // confirmation
+
+		  }
+		}
+
+		function whatIWantToDoWithMyResponseWhenItFails(response) {
+		  console.log('Yaay Failure');
+		  console.log(response);
+		}
+
+			    });
+		    });
+
+		    </script>
+		    <script>
+		    $(document).ready(function(){
+		        $("response").click(function(){
+
+		      console.log("response")
+		      });
+		    });
+
+		    </script>
+</body>

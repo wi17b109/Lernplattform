@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>Level 4: Klassen</h1>
+<p>
+  Eine Klasse ist eine Gruppe verwandter Funktionen und Variablen. In der Klasse werden dann die benötigten Variablen definiert und die Funktionen und Konstruktoren geschrieben. Eine Klasse wird so definiert:
+</p>
+<i>
+  class Programm { <br />
+    // hier wird der Code geschrieben <br />
+  } <br/>
+</i>
+
+<b>
+  Aufgabe 1
+</b>
+<p>
+  Mit dem bis jetzt gesammelten Wissen schreiben wir unsere erste Klasse.
+<br />Wir wollen in unserem Spiel Wesen gegeneinander kämpfen lassen.
+Sie brauchen daher eine maximale Anzahl an Hitpoints, die momentanen Hitpoints (weil sie sich während des Kampfes ändern), das aktuelle Level, einen Angriffswert, einen Verteidigungswert und einen Namen.
+<br />Welche Datentypen sind das?
+
+  </p>
+<b>
+  Aufgabe 2
+</b>
+<p>
+  Schreibe die folgende Klasse fertig aus:
+  <br />BaseCharacter.cs
+
+  </p>
+  <div id="codeeditor"></div>
+<script>
+
+var editor = CodeMirror(document.getElementById("codeeditor"),{
+value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n // Ersetze xxx durch den jeweiligen Datentypen \n xxx maxHitPoints; \n xxx currHitPoints; \n xxx currLvl; \n xxx attack; \n xxx defense; \n xxx name; \n //Your code goes here 						\n			}			\n		}		\n	}',
+mode : "clike",
+theme : "ambiance"
+});
+</script>
+<button id="run">Run</button>
+
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+
+var to_compile = {
+"LanguageChoice": "1",
+"Program": editor.getValue(),
+"Input": "",
+"CompilerArgs" : ""
+};
+
+const url = 'https://rextester.com/rundotnet/api';
+// Ajax call um Code zu compilen
+$.ajax({ url, type: 'POST', data: to_compile })
+.done(function (data) {
+whatIWantToDoWithMyResponseWhenItSucceeds(data);
+})
+.fail(function (data, err) {
+whatIWantToDoWithMyResponseWhenItFails(data);
+});
+// In success case, use compiled result
+function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+var areaContent = editor.getValue();
+console.log(areaContent);
+console.log('Yaay Success');
+console.log(response);
+console.log(response.Result);
+
+if (areaContent.includes('int maxHitPoints') && areaContent.includes('int currHitPoints') && areaContent.includes('int currLvl') && areaContent.includes('int attack') && areaContent.includes('int defense') && areaContent.includes('string name') ) { // Desired result
+// desired change, if the result contains the desired result
+console.log("Alright");
+alert("Aufgabe 1 gelöst!"); // confirmation
+} else {
+console.log("Come on");
+alert("Leider nicht korrekt!"); // confirmation
+
+}
+}
+
+function whatIWantToDoWithMyResponseWhenItFails(response) {
+console.log('Yaay Failure');
+console.log(response);
+}
+
+});
+});
+
+</script>
+<script>
+$(document).ready(function(){
+$("response").click(function(){
+
+console.log("response")
+});
+});
+
+</script>
+</body>

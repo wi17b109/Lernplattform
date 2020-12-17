@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>
+  Level 12: Switch Statement
+
+</h1>
+<p>
+  Eine Switch-Anweisung kann man sich wie eine Reihe von If-Anweisungen vorstellen. Sie ist eine Liste verschiedener Fälle, welche zudem jeweils auch eine Aktion beinhalten. Die Switch-Anweisung beinhaltet auch eine optionale Standardaktion (Default
+  Action) welche einsetzt, wenn keine der anderen Fälle mit true bewertet wurde. Ein einfaches Beispiel einer Switch-Anweisung könnte folgendermaßen aussehen:
+
+</p>
+<p>
+  <i>
+
+    int number = 1;
+    <p style="margin: 0px; margin-left: 15px;">
+
+      switch(number){ <br />
+      case 0:
+      <p style="margin: 0px; margin-left: 30px;">
+        Console.WriteLine(“The number is zero!”); <br />
+        break;
+      </p>
+      <p style="margin: 0px; margin-left: 15px;">
+        case 1:
+      </p>
+      <p style="margin: 0px; margin-left: 30px;">
+
+        Console.WriteLine(“The number is one”); <br />
+        break;
+
+      </p>
+      <p style="margin: 0px; margin-left: 15px;">
+        default:
+      </p>
+      <p style="margin: 0px; margin-left: 30px;">
+        Console.WriteLine(“The number is something else”);
+      </p>
+    </p>
+    }
+  </i>
+</p>
+
+<p>
+  Der zu prüfende Identifikator wird hinter das switch-Schlüsselwort geschrieben, gefolgt von der Liste an case-Anweisungen, in der wir den Identifikator gegen einen vorgegebenen Wert prüfen. Dir wird auffallen, dass wir am Ende von jedem case eine
+  break-Anweisung haben. Das liegt daran, dass C# verlangt, dass wir den Block vor seinem Ende verlassen.
+
+  In diesem Beispiel nutzen wir einen Integer, aber es könnte genauso gut ein String sein, oder jeder andere Datentyp. Außerdem kannst du dieselbe Aktion für mehrere cases spezifizieren. Wir werden das gleich im nächsten Beispiel machen, in dem wir
+  einen Input vom Nutzer nehmen und in unserem switch-Befehl verwenden.
+</p>
+
+<b>
+  Aufgabe
+
+</b>
+
+<p>
+  Wenn dein Gegner dran ist schlägt er dich, wenn du dran bist schlägst du ihn.
+  Vervollständige die Funktion
+
+</p>
+<div id="codeeditor"></div>
+<script>
+
+var editor = CodeMirror(document.getElementById("codeeditor"),{
+value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n //Your code goes here 						\n			}			\n		}		\n	}'
+private void battle()
+        {
+            int roundcounter = 0;
+            battle();
+            public void battle()
+            switch (roundCounter % 2)
+            {
+                case 0:
+                    hp = hitpointsBerechnen(player.Attack, curMonster.Defense, curMonster.CurrentHitPoints);
+                    curMonster.CurrentHitPoints = hp;
+                    roundCounter++;
+                    break;
+                case 1:
+                    hp = hitpointsBerechnen(curMonster.Attack, player.Defense, player.CurrentHitPoints);
+                    player.CurrentHitPoints = hp;
+                    roundCounter++;
+                    break;,
+mode : "clike",
+theme : "ambiance"
+});
+</script>
+<button id="run">Run</button>
+
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+
+var to_compile = {
+"LanguageChoice": "1",
+"Program": editor.getValue(),
+"Input": "",
+"CompilerArgs" : ""
+};
+
+const url = 'https://rextester.com/rundotnet/api';
+// Ajax call um Code zu compilen
+$.ajax({ url, type: 'POST', data: to_compile })
+.done(function (data) {
+whatIWantToDoWithMyResponseWhenItSucceeds(data);
+})
+.fail(function (data, err) {
+whatIWantToDoWithMyResponseWhenItFails(data);
+});
+// In success case, use compiled result
+function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+var areaContent = editor.getValue();
+console.log(areaContent);
+console.log('Yaay Success');
+console.log(response);
+console.log(response.Result);
+
+if (areaContent.includes('get { return player; }') && 'set { player = value; }' && 'get { return monster; }') && 'set { monster = value; }' && 'get { return message; }') && 'set { message = value; }')  { // Desired result
+// desired change, if the result contains the desired result
+console.log("Alright");
+alert("Aufgabe 1 gelöst!"); // confirmation
+} else {
+console.log("Come on");
+alert("Leider nicht korrekt!"); // confirmation
+
+}
+}
+
+function whatIWantToDoWithMyResponseWhenItFails(response) {
+console.log('Yaay Failure');
+console.log(response);
+}
+
+});
+});
+
+</script>
+<script>
+$(document).ready(function(){
+$("response").click(function(){
+
+console.log("response")
+});
+});
+
+</script>
+</body>

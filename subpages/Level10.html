@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>
+  Level 10: Array
+</h1>
+<p>
+  Ein Array ist eine Datenstruktur, die eine Anzahl von Variablen enthält, auf die über berechnete Indizes zugegriffen wird.
+  Die in einem Array enthaltenen Variablen, die auch als Elemente des Arrays bezeichnet werden, weisen alle denselben Typ auf. Dieser Typ wird als Elementtyp des Arrays bezeichnet.
+  Arraytypen sind Verweistypen, und die Deklaration einer Arrayvariablen reserviert Speicher für einen Verweis auf eine Arrayinstanz. Die tatsächlichen Arrayinstanzen werden unter Verwendung des new-Operators zur Laufzeit dynamisch erstellt. Der new-Vorgang legt die Länge der neuen Arrayinstanz fest, die dann für die Lebensdauer der Instanz beibehalten wird. Die Indizes der Arrayelemente reichen von 0 bis Length - 1. Der new-Operator initialisiert die Elemente eines Arrays automatisch mit ihren Standardwerten. Dieser lautet z.B. für alle numerischen Typen 0 und für alle Verweistypen null.
+
+  </p>
+<b>
+  Aufgabe
+</b>
+<p>
+  Aufgabe 1: Erstelle ein Array aus Monstern mit der Größe 2 <br />
+  Aufgabe 2:
+  Erstelle ein Monster an der Stelle 2 des Arrays und gib ihm die folgenden Werte: <br /><br />
+<b>
+
+  </b>
+
+  18 hitpoints <br />
+
+  Level 2 <br />
+
+  2 Angriff <br />
+
+  2 Defense <br />
+
+  Name:  Heinrich Himbeer <br />
+
+  </p>
+  <div id="codeeditor"></div>
+  <script>
+
+  var editor = CodeMirror(document.getElementById("codeeditor"),{
+  value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n //Your code goes here 						\n			}			\n		}		\n	}',
+  mode : "clike",
+  theme : "ambiance"
+  });
+  </script>
+  <button id="run">Run</button>
+
+  <script>
+  $(document).ready(function(){
+  $("button").click(function(){
+
+  var to_compile = {
+  "LanguageChoice": "1",
+  "Program": editor.getValue(),
+  "Input": "",
+  "CompilerArgs" : ""
+  };
+
+  const url = 'https://rextester.com/rundotnet/api';
+  // Ajax call um Code zu compilen
+  $.ajax({ url, type: 'POST', data: to_compile })
+  .done(function (data) {
+  whatIWantToDoWithMyResponseWhenItSucceeds(data);
+  })
+  .fail(function (data, err) {
+  whatIWantToDoWithMyResponseWhenItFails(data);
+  });
+  // In success case, use compiled result
+  function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+  var areaContent = editor.getValue();
+  console.log(areaContent);
+  console.log('Yaay Success');
+  console.log(response);
+  console.log(response.Result);
+  if (areaContent.includes('int attack = 2;'))  { // Desired result
+  // desired change, if the result contains the desired result
+  console.log("Alright");
+  alert("Aufgabe 2 gelöst!"); // confirmation
+} else if (areaContent.includes('public Monster[] monsters = new Monster[2];'))  { // Desired result
+  // desired change, if the result contains the desired result
+  console.log("Alright");
+  alert("Aufgabe 1 gelöst!"); // confirmation
+  } else {
+  console.log("Come on");
+  alert("Leider nicht korrekt!"); // confirmation
+
+  }
+  }
+
+  function whatIWantToDoWithMyResponseWhenItFails(response) {
+  console.log('Yaay Failure');
+  console.log(response);
+  }
+
+  });
+  });
+
+  </script>
+  <script>
+  $(document).ready(function(){
+  $("response").click(function(){
+
+  console.log("response")
+  });
+  });
+
+  </script>
+  </body>

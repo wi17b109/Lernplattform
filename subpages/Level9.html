@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>
+  Level 9: Bedingungen if/else
+
+</h1>
+<p>
+
+  Eine if-Anweisung ermittelt, welche Anweisung basierend auf dem Wert eines booleschen Ausdrucks auszuführen ist. Ein boolscher Ausdruck ist eine Variable, die zwei mögliche Zustände hat: true oder false. Wenn die Bedingung im if wahr, also true ist, wird der Code in der if-Anweisung ausgeführt. Wenn die Bedingung nicht wahr, also false ist, wird der Code in der else-Anweisung ausgeführt.
+
+  </p>
+<p>
+  <i>
+
+  if (condition == true) { <br />
+  <br />
+} else {<br />
+<br />
+}
+</i>
+</p>
+<p>
+  Wenn es mehr als zwei Möglichkeiten gibt, kann zusätzlich zu if und else noch else if verwendet werden. In else if werden einfach weitere Bedingungen wie im if angegeben. Es kann unendlich viele else ifs geben.
+
+  </p>
+<p>
+  <i>
+
+if (i == 1) { <br />
+<br />
+} else if(i == 2) { <br />
+<br />
+} else { <br />
+<br />
+} <br />
+</i>
+</p>
+<b>
+  Aufgabe1:
+  </b>
+<p>
+  Schreibe noch einmal die Funktion hitpointsBerechnen
+  </p>
+<p>
+  Aufgabe2:
+  Wenn der Angriffswert doppelt so hoch ist wie der Verteidigungswert soll ein kritischer Treffer erfolgen
+
+  </p>
+
+  <div id="codeeditor"></div>
+<script>
+
+     var editor = CodeMirror(document.getElementById("codeeditor"),{
+     	value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n hitpointsBerechnen(5,4,10);// hier wird die Funktion mit Beispielzahlen aufgerufen \n //Your code goes here       \n  xxx xxx xxx(xxx xxx, xxx xxx, xxx xxx) 	\n xxx \n     dmg = (2 * attack - defence); \n                   return dmg;  \n xxx \n  dmg = (attack - defence);\n           return xxx;\n       }\n      		}			\n		}		\n	}',
+     	mode : "clike",
+theme : "ambiance"
+});
+</script>
+<button id="run">Run</button>
+
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+
+var to_compile = {
+"LanguageChoice": "1",
+"Program": editor.getValue(),
+"Input": "",
+"CompilerArgs" : ""
+};
+
+const url = 'https://rextester.com/rundotnet/api';
+// Ajax call um Code zu compilen
+$.ajax({ url, type: 'POST', data: to_compile })
+.done(function (data) {
+whatIWantToDoWithMyResponseWhenItSucceeds(data);
+})
+.fail(function (data, err) {
+whatIWantToDoWithMyResponseWhenItFails(data);
+});
+// In success case, use compiled result
+function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+var areaContent = editor.getValue();
+console.log(areaContent);
+console.log('Yaay Success');
+console.log(response);
+console.log(response.Result);
+
+if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') && areaContent.includes('if (attack > defence)')) { // Desired result
+// desired change, if the result contains the desired result
+console.log("Alright");
+alert("Aufgabe 2 gelöst!"); // confirmation
+
+} else if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') ) { // Desired result
+// desired change, if the result contains the desired result
+console.log("Alright");
+alert("Aufgabe 1 gelöst!"); // confirmation
+} else {
+console.log("Come on");
+alert("Leider nicht korrekt!"); // confirmation
+
+}
+}
+
+function whatIWantToDoWithMyResponseWhenItFails(response) {
+console.log('Yaay Failure');
+console.log(response);
+}
+
+});
+});
+
+</script>
+<script>
+$(document).ready(function(){
+$("response").click(function(){
+
+console.log("response")
+});
+});
+
+</script>
+</body>

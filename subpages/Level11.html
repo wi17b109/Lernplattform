@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>
+  Level 11: Schleifen (For)
+
+</h1>
+<p>
+
+Jedes einzelne Monster händisch hinzuzufügen ist natürlich ein Riesenaufwand.
+
+Als Programmierer können wir das automatisieren. Wenn die selbe Tätigkeit mehrmals hintereinander ausgeführt werden soll können wir eine for-Schleife verwenden.
+
+Bei einer for-loop durchläuft ein Codeteil eine bestimmte Anzahl von Wiederholungen. Im Gegensatz zu anderen Schleifenarten wie while, do und foreach wird bei der for-Schleife im Vorhinein festgelegt, wieviele Iterationen die Schleife durchlaufen soll, also wie oft der Code wiederholt werden soll.
+
+For-Schleifen können beispielsweise verwendet werden, um Arrays zu befüllen. Nachdem das Array erstellt wurde, kann man das Array durchgehen und befüllen.
+
+Im folgenden Beispiel wird ein Array aus int-Elementen erstellt. Anschließend wird das Array initialisiert und die Inhalte des Arrays werden gedruckt.
+
+I wird als mitlaufende Zahl in der for-Schleife für Berechnungen herangezogen.
+</p>
+<p>
+  <i>
+    int[] a = new int [x]; <br />
+
+    for(int i = 0; i < a.length; i ++){
+<p style="margin: 0px; margin-left: 15px;">
+      a[i] = i*i;
+    </p>
+
+    } <br />
+
+    for(int i = 0; i < a.length; i++){
+<p style="margin: 0px; margin-left: 15px;">
+
+      Console.WriteLine($”a[{1}] = {a[1]}”);
+    </p>
+
+    } <br />
+
+  </i>
+  </p>
+<b>
+
+  Aufgabe
+</b>
+<p>
+ Aufgabe1:
+  Befülle ein 10er Array mit 10 verschiedenen Monstern.
+  </p>
+  <p>
+    Gib den Angriffswert des dritten Monsters aus.
+  <div id="codeeditor"></div>
+  <script>
+
+  var editor = CodeMirror(document.getElementById("codeeditor"),{
+  value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{		\n public Monster(int currentHitPoints, int maximumHitPoints, int level, int attack, int defense, string name) : base(currentHitPoints, maximumHitPoints, level, attack, defense, name) \n        {\n        }							\n //Your code goes here 			\n xxx (xxx)            {\n                monsters[i] = new Monster(10 + i, 10 + i, 1+i, 1+i i+1, "Monster" + i);\n            } \n			\n			}			\n		}		\n	}',
+            mode : "clike",
+            theme : "ambiance"
+            });
+  </script>
+  <button id="run">Run</button>
+
+  <script>
+  $(document).ready(function(){
+  $("button").click(function(){
+
+  var to_compile = {
+  "LanguageChoice": "1",
+  "Program": editor.getValue(),
+  "Input": "",
+  "CompilerArgs" : ""
+  };
+
+  const url = 'https://rextester.com/rundotnet/api';
+  // Ajax call um Code zu compilen
+  $.ajax({ url, type: 'POST', data: to_compile })
+  .done(function (data) {
+  whatIWantToDoWithMyResponseWhenItSucceeds(data);
+  })
+  .fail(function (data, err) {
+  whatIWantToDoWithMyResponseWhenItFails(data);
+  });
+  // In success case, use compiled result
+  function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+  var areaContent = editor.getValue();
+  console.log(areaContent);
+  console.log('Yaay Success');
+  console.log(response);
+  console.log(response.Result);
+
+  if (response.Result.includes() && areaContent.includes('Console.WriteLine(')) {// Desired result
+  // desired change, if the result contains the desired result
+  console.log("Alright");
+  alert("Aufgabe 2 gelöst!"); // confirmation
+
+  }
+  else if (areaContent.includes('get { return player; }'))  { // Desired result
+  // desired change, if the result contains the desired result
+  console.log("Alright");
+  alert("Aufgabe 1 gelöst!"); // confirmation
+  } else {
+  console.log("Come on");
+  alert("Leider nicht korrekt!"); // confirmation
+
+  }
+  }
+
+  function whatIWantToDoWithMyResponseWhenItFails(response) {
+  console.log('Yaay Failure');
+  console.log(response);
+  }
+
+  });
+  });
+
+  </script>
+  <script>
+  $(document).ready(function(){
+  $("response").click(function(){
+
+  console.log("response")
+  });
+  });
+
+  </script>
+  </body>

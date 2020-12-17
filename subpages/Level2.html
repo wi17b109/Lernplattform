@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+
+<h1>Level 2: Integer</h1>
+<p>
+  Ein Integer ist ein Datentyp in C#, in dem natürliche Zahlen gespeichert werden. Die Syntax sieht so aus:
+</p>
+<i>
+  int i = 1;
+</i>
+<p>
+  Kommazahlen können darin nicht gespeichert werden, dafür können Double oder Float verwendet werden. Diese unterschieden sich in der Anzahl an Ziffern, welche in der Variable gespeichert werden können und dem Bedarf an Speicherplatz, der beim Speichern der Variable benötigt wird. <br/>
+  Double: speichert bis zu 16 Ziffern<br/>
+  Float: speichert nur 7 Ziffern
+</p>
+<b>
+  Aufgabe
+</b>
+<p>
+  Speichere die Zahl 3 in einer Variable und gib diese aus.
+  </p>
+
+  <div id="codeeditor"></div>
+  <script>
+
+  var editor = CodeMirror(document.getElementById("codeeditor"),{
+  value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n//Your code goes here										\n				Console.WriteLine("Thomas");				\n			}			\n		}		\n	}',
+  mode : "clike",
+  theme : "ambiance"
+  });
+  </script>
+  <button id="run">Run</button>
+
+  <script>
+  $(document).ready(function(){
+  $("button").click(function(){
+
+  var to_compile = {
+  "LanguageChoice": "1",
+  "Program": editor.getValue(),
+  "Input": "",
+  "CompilerArgs" : ""
+  };
+
+  const url = 'https://rextester.com/rundotnet/api';
+  // Ajax call um Code zu compilen
+  $.ajax({ url, type: 'POST', data: to_compile })
+  .done(function (data) {
+  whatIWantToDoWithMyResponseWhenItSucceeds(data);
+  })
+  .fail(function (data, err) {
+  whatIWantToDoWithMyResponseWhenItFails(data);
+  });
+  // In success case, use compiled result
+  function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+  var areaContent = editor.getValue();
+  console.log(areaContent);
+  console.log('Yaay Success');
+  console.log(response);
+  console.log(response.Result);
+
+  if (response.Result.includes('3') && areaContent.includes('int')) { // Desired result
+  // desired change, if the result contains the desired result
+  console.log("Alright");
+  alert("Aufgabe 1 gelöst!"); // confirmation
+  } else {
+  console.log("Come on");
+  alert("Leider nicht korrekt!"); // confirmation
+
+  }
+  }
+
+  function whatIWantToDoWithMyResponseWhenItFails(response) {
+  console.log('Yaay Failure');
+  console.log(response);
+  }
+
+  });
+  });
+
+  </script>
+  <script>
+  $(document).ready(function(){
+  $("response").click(function(){
+
+  console.log("response")
+  });
+  });
+
+  </script>
+  </body>

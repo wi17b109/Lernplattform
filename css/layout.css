@@ -1,0 +1,96 @@
+/* CSS Document */
+
+/* TAGs */
+*{
+	margin: 0;
+	padding: 0;
+	border: solid #000 0;
+	font-family: Arial, Tahoma;
+}
+body{
+	color: #000;
+	background-color: #1B1B1B;
+	font-weight: normal;
+}
+
+/* Klassen */
+#button{
+	margin: 10px;
+	border-radius: 5px;
+	color: white;
+}
+
+a{
+	color: white;
+}
+
+a:visited{
+	color: white;
+}
+
+.navbar{
+	margin: 0px !important;
+	margin-left: 0px !important;
+	padding: 0px !important;
+}
+
+#mail{
+	color: #0000EE;
+}
+
+.beitrag{
+	color: #000;
+	background-color: white;
+	margin: 10px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	box-shadow: 2px 2px grey gradient;
+}
+
+.beitrag:hover{
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    0px 0px 13px 0px rgba(50, 50, 50, 1);
+	box-shadow:         0px 0px 13px 0px rgba(50, 50, 50, 1);
+
+	/*box-shadow: 10px 10px 5px #888888;*/
+}
+
+/* DIVs & SPANs */
+#bild{
+	color: #000;
+	background-image:url(../img/vernetzung_hintergrundbild.jpg);
+	background-size: 100.1%;
+	background-attachment: fixed;
+	/*position: fixed;*/
+	width: 100.1%;
+	height: 100.1%;
+	float: left;
+}
+#wrap{
+	font-size: 100.1%;
+	width: 1100px ;
+	min-height: 900px;
+	margin: 10px auto;
+	float: center;
+	position: relative;
+}
+
+#content{
+	margin: 0;
+	padding: 0;
+	float: left;
+	border:solid: 1px;
+	min-width: 900px;
+}
+
+#footer{
+	color: #000;
+	/*background-color: #E4E4E4;*/
+	background-image: linear-gradient(to top, #B7B7B7 0%, #D3D3D3 50%);	font-size: 100.1%;
+	min-height: 30px;
+	min-width: 890px;
+	clear: both;
+	border: 1px;
+	text-align: right;
+	padding: 10px 10px 0 0;
+}

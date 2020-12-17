@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>
+  Level 8: Funktionen
+
+</h1>
+<p>
+  Funktionen sind kleine Teile eines Programms, die eine spezifische Aufgabe erledigen. Sie sind immer aufrufbar und führen bestimmte Aufgaben aus. Eine Funktion kann auch Variablen oder Parameter zurückgeben. Dafür muss der Datentyp in der Funktion definiert werden. Wenn kein Wert zurückgegeben wird, wird die Funktion als void definiert.
+  <br />Funktionen werden so aufgebaut:
+
+  </p>
+<p>
+  <i>
+    &ltmodifier&gt &ltreturntype&gt &ltMethodenname&gt (Parameterliste) {}
+    </i>
+  </p>
+<p>
+<b>Beispiel:<br /></b>
+  <i>
+    public static void meineFunktion() {
+    <br /><br />
+    } <br />
+  </i>
+  </p>
+
+
+<b>
+  Aufgabe
+
+</b>
+ <p>
+
+   Schreibe die Funktion, die aufgerufen wird, wenn der Spieler das Monster schlägt.
+   </p>
+
+   																		<div id="codeeditor"></div>
+   <script>
+
+   var editor = CodeMirror(document.getElementById("codeeditor"),{
+   	value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n hitpointsBerechnen(5,4,10);// hier wird die Funktion mit Beispielzahlen aufgerufen \n //Your code goes here       \n  xxx xxx xxx(xxx xxx, xxx xxx, xxx xxx) 	\n        dmg = (attack - defence);\n           return xxx;\n       }\n      		}			\n		}		\n	}',
+   	mode : "clike",
+   	theme : "ambiance"
+   });
+   </script>
+   <button id="run">Run</button>
+
+   <script>
+   $(document).ready(function(){
+   		$("button").click(function(){
+
+   		var to_compile = {
+   			"LanguageChoice": "1",
+   			"Program": editor.getValue(),
+   			"Input": "",
+   			"CompilerArgs" : ""
+   		};
+
+   		            const url = 'https://rextester.com/rundotnet/api';
+   		// Ajax call um Code zu compilen
+   		$.ajax({ url, type: 'POST', data: to_compile })
+   		  .done(function (data) {
+   		    whatIWantToDoWithMyResponseWhenItSucceeds(data);
+   		  })
+   		  .fail(function (data, err) {
+   		    whatIWantToDoWithMyResponseWhenItFails(data);
+   		  });
+   		// In success case, use compiled result
+   		function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+   		  var areaContent = editor.getValue();
+   		  console.log(areaContent);
+   		  console.log('Yaay Success');
+   		  console.log(response);
+   		  console.log(response.Result);
+
+   			  if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') ) { // Desired result
+   		   // desired change, if the result contains the desired result
+   		    console.log("Alright");
+   				alert("Aufgabe 1 gelöst!"); // confirmation
+   		  } else {
+   		    console.log("Come on");
+          alert("Leider nicht korrekt!"); // confirmation
+
+   		  }
+   		}
+
+   		function whatIWantToDoWithMyResponseWhenItFails(response) {
+   		  console.log('Yaay Failure');
+   		  console.log(response);
+   		}
+
+   			    });
+   		    });
+
+   		    </script>
+   		    <script>
+   		    $(document).ready(function(){
+   		        $("response").click(function(){
+
+   		      console.log("response")
+   		      });
+   		    });
+
+   		    </script>
+   </body>

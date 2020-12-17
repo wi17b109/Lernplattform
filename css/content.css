@@ -1,0 +1,59 @@
+/* CSS Document */
+h1{
+	font-size: 1.7em;
+    padding: 0 0 10px 0;
+    font-weight: normal;
+}
+
+h2{
+	font-size: 1.5em;
+	/*padding: 1.3em 0 0.3em 0;*/
+	font-weight: normal;
+}
+
+h3{
+	font-size: 1.2em;
+	/*padding: 1.0em 0 0.2 em 0;*/
+	font-weight: normal;
+	color:#686868;
+}
+h4{
+	font-size:1.0em;
+	color:#16640A;
+}
+
+p{
+	font-size: 0.8em;
+	padding-top: 0.2em;
+}
+
+h1.Schritt1{
+    color: #A41D79;
+}
+
+h1.Schritt2{
+	color: #1D55A4;
+}
+
+h1.Schritt3{
+	color: #1DA486;
+}
+
+h1.Schritt4{
+	color: #2FA41D;
+}
+
+h1.Schritt5{
+	color: #FFAF00;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: #aaa;
+}
+table#t01 tr:nth-child(odd) {
+    background-color: #bbb;
+}
+table#t01 th {
+    color: white;
+    background-color: black;
+}

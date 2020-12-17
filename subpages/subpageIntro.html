@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lets Code: Intro</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+	<link rel="stylesheet" href="../css/main.css">
+
+	<!-- Script -->
+	<script src="../js/jquery.min.js"></script>
+	<script src="../plugin/codemirror/lib/codemirror.js"></script>
+	<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+</head>
+
+<body id="bild">
+
+	<script type="text/javascript">
+		function load_home(page) {
+			document.getElementById("Inhalt"+page).innerHTML='<object width="1000px" height="1200px" type="text/html" data="Level'+page+'.html" ></object>';
+		}
+		
+		function toggleDiv(divNum) {
+
+			$("#close").hide();
+			$(".slide").animate({
+				right: '-100%'
+			}, 350);
+			$(".slide1").animate({
+				right: '-100%'
+			}, 350);
+			if ($("#div" + divNum)) {
+
+				$("#div" + divNum).animate({
+					right: '0'
+				}, 350, function() {
+					$("#close").show();
+				});
+			}
+		}
+
+		$(document).ready(function() {
+			$("#close").on("click", function(e) {
+				$(".slide").animate({
+					right: '-200'
+				}, 350);
+				$(this).hide()
+			})
+
+		});		
+	</script>
+	
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<ul class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<li>
+					<a href="../form.html">Startseite<a/>
+					<span></span><span></span><span></span><span></span>
+				</li>
+				<li>
+					<a href="subpageIntro.html">Learn C#<a/>
+					<span></span><span></span><span></span><span></span>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td bgcolor="#424a52">
+					<div>
+					<nav>
+						<ul>
+							<li onclick="toggleDiv(1);load_home(0)">
+								Level 0 - Intro C#
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(2);load_home(1)">
+								Level 1 - String
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(3);load_home(2)">
+								Level 2 - Integer
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(4);load_home(3)">
+								Level 3 - Berechnungen
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(5);load_home(4)">
+								Level 4 - Klassen
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(6);load_home(5)">
+								Level 5 - Vererbung
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(7);load_home(6)">
+								Level 6 - Konstruktoren
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(8);load_home(7)">
+								Level 7 - Projekt
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(9);load_home(8)">
+								Level 8 - Funktionen
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(10);load_home(9)">
+								Level 9 - If/Else
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(11),load_home(10)">
+								Level 10 - Array
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(12);load_home(11)">
+								Level 11 - Schleifen
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(13);load_home(12)">
+								Level 12 - Switch
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(14);load_home(13)">
+								Level 13 - Counter
+								<span></span><span></span><span></span><span></span>
+							</li>
+							<li onclick="toggleDiv(14);load_home(13)">
+								Level 14 - Referenz
+								<span></span><span></span><span></span><span></span>
+							</li>
+						</ul>
+					</nav>
+					</div>
+				</td>
+				<td width="1250px">
+					<div id="wrap">
+						<div id="grad">
+							<div id="right-content">
+								<div class="slide1" id="div1">
+									<div id="content">
+										<div class="beitrag">
+											<h1>Intro C#</h1>
+											<div id="preview-comment"></div>
+											<div id="Inhalt0"></div>
+											<script>
+											load_home(0);
+											</script>
+										</div>
+								</div>
+							</div>
+								
+								<!--Div2-->
+								<div class="slide" id="div2">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt1"></div>
+										</div>
+									</div>
+								</div>	
+								<!--Div2 Ende -->
+								<div class="slide" id="div3">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt2"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div3 Ende -->
+								<div class="slide" id="div4">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt3"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div4 Ende -->
+								<div class="slide" id="div5">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt4"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div5 Ende -->
+								<div class="slide" id="div6">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt5"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div6 Ende -->
+								<div class="slide" id="div7">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt6"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div7 Ende -->
+								<div class="slide" id="div8">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt7"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div8 Ende -->
+								<div class="slide" id="div9">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt8"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div9 Ende -->
+								<div class="slide" id="div10">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt9"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div10 Ende -->
+								<div class="slide" id="div11">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt10"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div11 Ende -->
+								<div class="slide" id="div12">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt11"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div12 Ende -->
+								<div class="slide" id="div13">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt12"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div13 Ende -->
+								<div class="slide" id="div14">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt13" height="100%"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div14 Ende -->
+								<div class="slide" id="div15">
+									<div id="conent">
+										<div class="beitrag">
+											<div id="preview-comment"></div>
+											<div id="includedContent"></div>
+											<div id="Inhalt14" height="100%"></div>
+										</div>
+									</div>
+								</div>
+								<!--Div14 Ende -->
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

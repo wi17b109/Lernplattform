@@ -1,0 +1,84 @@
+<!doctype html>
+<head>
+<script src="codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/theme/ambiance.css">
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/mode/clike/clike.js"></script>
+<script src="../js/jquery.min.js"></script>
+<style>
+body {
+	background-color: #eee;
+}
+</style>
+</head>
+<body>
+<div id="codeeditor"></div>
+<script>
+
+var editor = CodeMirror(document.getElementById("codeeditor"),{
+	value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n//Your code goes here									\nint a=1;							\n	int b=0;							\n		int c=0;						\n		 c = a+b;					\n				Console.WriteLine("Hello, world!");				\n			}			\n		}		\n	}',
+	mode : "clike",
+	theme : "ambiance"
+});
+</script>
+<script>
+$(document).ready(function(){
+		$("button").click(function(){
+
+		var to_compile = {
+			"LanguageChoice": "1",
+			"Program": editor.getValue(),
+			"Input": "",
+			"CompilerArgs" : ""
+		};
+
+		            const url = 'https://rextester.com/rundotnet/api';
+		// Ajax call um Code zu compilen
+		$.ajax({ url, type: 'POST', data: to_compile })
+		  .done(function (data) {
+		    whatIWantToDoWithMyResponseWhenItSucceeds(data);
+		  })
+		  .fail(function (data, err) {
+		    whatIWantToDoWithMyResponseWhenItFails(data);
+		  });
+		// In success case, use compiled result
+		function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+		  var areaContent = editor.getValue();
+		  console.log(areaContent);
+		  console.log('Yaay Success');
+		  console.log(response);
+		  console.log(response.Result);
+		  if (response.Result.includes('5')) { // Desired result
+		//  document.getElementById("Output").style.borderColor = "green";
+		   // desired change, if the result contains the desired result
+		    console.log("Alright"); // confirmation
+		  } else {
+		   // document.getElementById("Output").style.borderColor = "red";
+		    console.log("Come on");
+		  }
+		}
+
+		function whatIWantToDoWithMyResponseWhenItFails(response) {
+		  console.log('Yaay Failure');
+		  console.log(response);
+		}
+
+			    });
+		    });
+
+		    </script>
+		    <script>
+		    $(document).ready(function(){
+		        $("response").click(function(){
+
+		      console.log("response")
+		      });
+		    });
+
+		    </script>
+</head>
+
+<button id="run">Run</button>
+</body>
+</html>

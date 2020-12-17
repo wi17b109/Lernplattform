@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>
+  Level 13: Counter
+
+</h1>
+<p>
+  Die folgenden Operatoren führen arithmetische Operationen mit Operanden numerischer Typen aus:
+  <br />Unäre Operatoren: ++ (inkrementell), -- (dekrementell), += (Additionszuweisungsoperator) und -= (Subtraktionszuweisungsoperator)
+<br />Der unäre Inkrementoperator (++) erhöht seinen Operanden um 1. Der Operand muss eine Variable, ein Eigenschaftenzugriff oder ein Indexerzugriff sein.
+<br />Der Inkrementoperator wird in zwei Formen unterstützt: als Postfix-Inkrementoperator x++ und als Präfix-Inkrementoperator ++x.
+
+  </p>
+<b>Beispiel</b>
+
+<p>
+  <i>
+    int i = 3; <br />
+    Console.WriteLine(a++);   <br />
+    Console.WriteLine(++a);   <br />
+  </i>
+  </p>
+
+<p>
+  Der unäre Dekrementoperator -- verringert seinen Operanden um 1. Der Operand muss eine Variable, ein Eigenschaftenzugriff oder ein Indexerzugriff sein.
+  Der Dekrementoperator wird in zwei Formen unterstützt: als Postfix-Dekrementoperator x-- und als Präfix-Dekrementoperator --x.
+
+  </p>
+ <b>Beispiel</b>
+<p>
+<i>
+  int i = 3; <br />
+  Console.WriteLine(a--); <br />
+  Console.WriteLine(--a);  <br />
+</i>
+  </p>
+
+ <p>
+   Ein Ausdruck mit dem Operator += z.B.
+   <i>
+     x+= y
+
+   </i>
+   für die folgende Syntax:
+   <i>
+     x = x + y
+   </i>
+   außer dass x nur einmal überprüft wird.
+   Im folgenden Beispiel wird die Verwendung des += Operators veranschaulich:
+   <i><br /><br />
+     int i = 5; <br />
+     i += 9;<br />
+
+     string story = “Start.”; <br />
+     story += “End.”; <br />
+     Console.WriteLine(story); <br />
+
+   </i>
+   </p>
+
+<p>
+  Ein Ausdruck mit dem Operator -= z.B.:
+  <i>
+    x -= y
+    </i>
+  macht dasselbe wie folgende Syntax:
+  <i>
+    x = x – y
+    </i>
+, aber x wird nur einmal überprüft.
+  </p>
+ <p>
+   Im folgenden Beispiel wird die Verwendung des -= Operators veranschaulicht:
+<i>
+<br /><br />
+  int i = 5; <br />
+  i -= 9; <br />
+  Console.WriteLine(i); <br />
+
+  Action a = () => Console.Write(“a”); <br />
+  Action b = () => Console.Write(“b”); <br />
+  var printer = a + b + a; <br />
+  printer(); <br />
+
+  printer -= a; <br />
+  printer();<br />
+  Aufgabe1: Zähle die Zahl 2 einmal hoch und gib sie aus.
+  Aufgab2: Speichere 8 in die Variable a, zähle sie einmal herunter und gibt sie aus.
+</i>
+
+   </p>
+   <div id="codeeditor"></div>
+ <script>
+
+ var editor = CodeMirror(document.getElementById("codeeditor"),{
+ value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									 \n //Your code goes here 						\n			}			\n		}		\n	}',
+ mode : "clike",
+ theme : "ambiance"
+ });
+ </script>
+ <button id="run">Run</button>
+
+ <script>
+ $(document).ready(function(){
+ $("button").click(function(){
+
+ var to_compile = {
+ "LanguageChoice": "1",
+ "Program": editor.getValue(),
+ "Input": "",
+ "CompilerArgs" : ""
+ };
+
+ const url = 'https://rextester.com/rundotnet/api';
+ // Ajax call um Code zu compilen
+ $.ajax({ url, type: 'POST', data: to_compile })
+ .done(function (data) {
+ whatIWantToDoWithMyResponseWhenItSucceeds(data);
+ })
+ .fail(function (data, err) {
+ whatIWantToDoWithMyResponseWhenItFails(data);
+ });
+ // In success case, use compiled result
+ function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+ var areaContent = editor.getValue();
+ console.log(areaContent);
+ console.log('Yaay Success');
+ console.log(response);
+ console.log(response.Result);
+
+ if ( response.Result.includes(3)) { // Desired result
+ // desired change, if the result contains the desired result
+ console.log("Alright");
+ alert("Aufgabe 1 gelöst!"); // confirmation
+} else  if ( response.Result.includes(9) && areaContent.includes('int a') && areaContent.includes('a++;')) { // Desired result
+ // desired change, if the result contains the desired result
+ console.log("Alright");
+ alert("Aufgabe 2 gelöst!"); // confirmation
+} else {
+ console.log("Come on");
+ alert("Leider nicht korrekt!"); // confirmation
+
+ }
+ }
+
+ function whatIWantToDoWithMyResponseWhenItFails(response) {
+ console.log('Yaay Failure');
+ console.log(response);
+ }
+
+ });
+ });
+
+ </script>
+ <script>
+ $(document).ready(function(){
+ $("response").click(function(){
+
+ console.log("response")
+ });
+ });
+
+ </script>
+ </body>

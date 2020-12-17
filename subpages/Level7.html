@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+
+<!-- Script -->
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/codemirror/lib/codemirror.js"></script>
+<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+<link rel="stylesheet" href="../css/content.css">
+<h1>
+  Level 7: Das Projekt
+</h1>
+<p>
+  Wir beginnen nun in einer neuen Klasse das Spiel selbst zu entwickeln.
+  </p>
+<b>
+  Aufgabe 1
+</b>
+<p>
+  Einige der Variablentypen kannst du dir aus dem bisher geschriebenen Code heraussuchen.
+<br />  Überlege dir die passenden Variablentypen und erstelle die folgenden Variablen:
+<br />  Attack, defence, currentHitPoint, damage, roundCounter, currName, counter
+<br />  Am Ende der Angabe hast du ein Bild, wie diese Werte am Ende auszusehen haben.
+</p>
+<p>
+  Zusätzlich verwenden wir unsere erstellten Klassen auch als Variablentypen.
+<br />  <i>
+    private Player player; <br />
+    private Monster currentMonster;
+
+  </i>
+  </p>
+<p>
+  Unsere bisher geschrieben Variablen waren allesamt “props”, sprich “properties”.
+  In C# gibt es neben properties auch fullprops. Der Unterschied ist, dass sich hier den jeweiligen Eigenschaften auch Logik und Funktionen zuweisen lassen.
+<br />  Wir wollen zum Beispiel den Namen des Spielers während des Spiels jederzeit ändern und dann auch sofort aktualisieren können. Wir schreiben daher den currName als fullprop.
+
+  </p>
+<i>
+  private string currName;   <br />
+
+  public string CurrName <br />
+  {
+    <p style="margin: 0px; margin-left: 15px;">
+      get { return currName; } <br />
+      set { currName = value;  } <br />
+
+      </p>
+  }
+</i>
+<p>
+  Die Werte von Monstern werden sich im Laufe des Spiels ändern. In der ersten Version immer dann, wenn ein Monster besiegt wurde.
+  Die Werte des Players werden mit jedem Levelup besser.
+  Die message ist unser liveticker, wo wir Nachrichten über den zugefügten und erhaltenen Schaden erhalten.
+  Aufgabe:
+  Schreibe ein Monster, einen Player, und eine message als fullprop.
+  </p>
+<img src="Level7.jpg"/>
+<div id="codeeditor"></div>
+<script>
+
+var editor = CodeMirror(document.getElementById("codeeditor"),{
+value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n //Your code goes here 						\n			}			\n		}		\n	}',
+mode : "clike",
+theme : "ambiance"
+});
+</script>
+<button id="run">Run</button>
+
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+
+var to_compile = {
+"LanguageChoice": "1",
+"Program": editor.getValue(),
+"Input": "",
+"CompilerArgs" : ""
+};
+
+const url = 'https://rextester.com/rundotnet/api';
+// Ajax call um Code zu compilen
+$.ajax({ url, type: 'POST', data: to_compile })
+.done(function (data) {
+whatIWantToDoWithMyResponseWhenItSucceeds(data);
+})
+.fail(function (data, err) {
+whatIWantToDoWithMyResponseWhenItFails(data);
+});
+// In success case, use compiled result
+function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+var areaContent = editor.getValue();
+console.log(areaContent);
+console.log('Yaay Success');
+console.log(response);
+console.log(response.Result);
+
+if (areaContent.includes('get { return player; }') && 'set { player = value; }' && 'get { return monster; }') && 'set { monster = value; }' && 'get { return message; }') && 'set { message = value; }')  { // Desired result
+// desired change, if the result contains the desired result
+console.log("Alright");
+alert("Aufgabe 1 gelöst!"); // confirmation
+} else {
+console.log("Come on");
+alert("Leider nicht korrekt!"); // confirmation
+
+}
+}
+
+function whatIWantToDoWithMyResponseWhenItFails(response) {
+console.log('Yaay Failure');
+console.log(response);
+}
+
+});
+});
+
+</script>
+<script>
+$(document).ready(function(){
+$("response").click(function(){
+
+console.log("response")
+});
+});
+
+</script>
+</body>

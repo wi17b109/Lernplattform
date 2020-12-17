@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lets Code: subpage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Script -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../plugin/codemirror/lib/codemirror.js"></script>
+    <script src="../plugin/codemirror/mode/clike/clike.js"></script>
+  </head>
+  <body>
+	  <button type="button" class="btn btn-secondary" id="button"><a href="../form.html">Startseite</a></button>
+		<div id="bild">
+			<div id="wrap">
+				<div id="content">
+    		<div class="beitrag">
+      		<h1>Beispiel fuer Coden</h1>
+      		<div id="preview-comment"></div>
+        		<script>
+          		var editor = CodeMirror(document.getElementById("preview-comment"),{
+            		value:"namespace { \nenum Enum {\nVAL1, VAL2,VAL3",
+            		mode:"text/x-csharp",
+            		theme:"ambiance",
+            		lineNumbers:true,
+								spellcheck=true
+            		});
+        		</script>
+      	</div>
+			</div>
+		</div>
+	</div>
+
+  </body>
+</html>
