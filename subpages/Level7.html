@@ -7,6 +7,8 @@
 <script src="../plugin/codemirror/lib/codemirror.js"></script>
 <script src="../plugin/codemirror/mode/clike/clike.js"></script>
 <link rel="stylesheet" href="../css/content.css">
+<script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
+<link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
 <h1>
   Level 7: Das Projekt
 </h1>
@@ -55,17 +57,28 @@
   Aufgabe:
   Schreibe ein Monster, einen Player, und eine message als fullprop.
   </p>
-<img src="Level7.jpg"/>
+  <div class="pb">
+<img src="Level7.jpg">
+</div>
+<button class="button" id="run">Start Code</button><br/><br/>
 <div id="codeeditor"></div>
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
 value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n //Your code goes here 						\n			}			\n		}		\n	}',
 mode : "clike",
-theme : "ambiance"
+theme : "ambiance",
+lineNumbers:true,
+ extraKeys: {
+        "F11": function(cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+      }
 });
 </script>
-<button id="run">Run</button>
 
 <script>
 $(document).ready(function(){

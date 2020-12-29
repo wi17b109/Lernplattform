@@ -1,6 +1,6 @@
 /* CSS Document */
 
-/* TAGs */
+/* Formatierung der Hauptseite */
 *{
 	margin: 0;
 	padding: 0;
@@ -9,63 +9,18 @@
 	box-sizing: border-box;
 }
 
-.row::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-}
-
-/* For desktop: */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-object{
-	width:100%;
-	min-height: 800px;
-	position: relative;
-	object-fit: cover;
-}
-
 body{
 	color: #000;
 	background-color: #1B1B1B;
 	font-weight: normal;
-}
-
-/* Klassen */
-#button{
-	margin: 10px;
-	border-radius: 5px;
-	color: white;
-}
-
-a{
-	color: white;
-}
-
-a:visited{
-	color: white;
+	font-family: Arial, Tahoma;
 }
 
 .navbar{
 	margin: 0px !important;
 	margin-left: 0px !important;
 	padding: 0px !important;
+	width: 100%;
 }
 
 #mail{
@@ -79,15 +34,27 @@ a:visited{
 	padding: 10px 20px;
 	border-radius: 5px;
 	box-shadow: 2px 2px grey gradient;
-	min-height: 800px;
 }
 
 .beitrag:hover{
 	-webkit-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 1);
 	-moz-box-shadow:    0px 0px 13px 0px rgba(50, 50, 50, 1);
 	box-shadow:         0px 0px 13px 0px rgba(50, 50, 50, 1);
+}
 
-	/*box-shadow: 10px 10px 5px #888888;*/
+.beitragform{
+	color: #000;
+	background-color: white;
+	margin: 10px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	box-shadow: 2px 2px grey gradient;
+}
+
+.beitragform:hover{
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    0px 0px 13px 0px rgba(50, 50, 50, 1);
+	box-shadow:         0px 0px 13px 0px rgba(50, 50, 50, 1);
 }
 
 /* DIVs & SPANs */
@@ -97,10 +64,11 @@ a:visited{
 	background-size: 100.1%;
 	background-attachment: fixed;
 	/*position: fixed;*/
-	width: 100.1%;
-	height: 100.1%;
+	width: 100%;
+	height: 100%;
 	float: left;
 }
+
 #wrap{
 	font-size: 100.1%;
 	width: 1100px ;
@@ -116,17 +84,92 @@ a:visited{
 	float: left;
 	border:solid: 1px;
 	width: 100vh;
-	height: 100vh;
+	height: auto;
 }
 
-#footer{
-	color: #000;
-	/*background-color: #E4E4E4;*/
-	background-image: linear-gradient(to top, #B7B7B7 0%, #D3D3D3 50%);	font-size: 100.1%;
-	min-height: 30px;
-	min-width: 890px;
-	clear: both;
-	border: 1px;
-	text-align: right;
-	padding: 10px 10px 0 0;
+.beitrag object{
+	position: relative;
+	object-fit: cover;
+	width:100%;
+	height: 1000px;
 }
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    --c:  maroon;
+    color: white;
+    font-size: 14px;
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 100%;
+    max-width: 300px;
+    min-width:242px;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+}
+
+nav ul li span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 100%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+nav ul li:hover {
+    color: black;
+}
+
+nav ul li:hover span {
+    transform: translateY(0) scale(2);
+}
+
+nav ul li span:nth-child(1) {
+    --n: 1;
+}
+
+nav ul li span:nth-child(2) {
+    --n: 2;
+}
+
+nav ul li span:nth-child(3) {
+    --n: 3;
+}
+
+nav ul li span:nth-child(4) {
+    --n: 4;
+}
+
+#Inhalt1{height: 100%;}
+#Inhalt2{height: 100%;}
+#Inhalt3{height: 100%;}
+#Inhalt4{height: 100%;}
+#Inhalt5{height: 100%;}
+#Inhalt6{height: 100%;}
+#Inhalt7{height: 100%;}
+#Inhalt8{height: 100%;}
+#Inhalt9{height: 100%;}
+#Inhalt10{height: 100%;}
+#Inhalt11{height: 100%;}
+#Inhalt12{height: 100%;}
+#Inhalt13{height: 100%;}

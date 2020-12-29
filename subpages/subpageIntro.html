@@ -4,105 +4,63 @@
 <head>
 	<title>Lets Code: Intro</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
-	<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
 	<link rel="stylesheet" href="../css/main.css">
 
 	<!-- Script -->
 	<script src="../js/jquery.min.js"></script>
-	<script src="../plugin/codemirror/lib/codemirror.js"></script>
-	<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+	<script type="text/javascript" src="../js/load_animation.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
-.row::after {
+.rod::after {
   content: "";
   clear: both;
   display: block;
 }
 
-[class*="col-"] {
+[class*="cod-"] {
   float: left;
-  padding: 15px;
+  padding: 10px;
 }
 
 /* For desktop: */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-object{
-	width:100%;
-	min-height: 800px;
-	position: relative;
-	object-fit: cover;
-}
+.cod-1 {width: 8.33%;}
+.cod-2 {width: 16.66%;}
+.cod-3 {width: 25% !important;min-width: 250px !important;}
+.cod-4 {width: 33.33%;}
+.cod-5 {width: 41.66%;}
+.cod-6 {width: 50%;}
+.cod-7 {width: 58.33%;}
+.cod-8 {width: 66.66%;}
+.cod-9 {max-width: 75%!important;flex: 0 0 73% !important;}
+.cod-10 {width: 83.33%;}
+.cod-11 {width: 91.66%;}
+.cod-12 {width: 100%;}
 	
 </style>
+<!--Download from Zip-->
+<a href="" id="downlink" style="display:none" download="">HEY</a>
 </head>
 
 <body id="bild">
 
-	<script type="text/javascript">
-		function load_home(page) {
-			document.getElementById("Inhalt"+page).innerHTML='<object type="text/html" data="Level'+page+'.html" ></object>';
-		}
-		
-		function toggleDiv(divNum) {
-
-			$("#close").hide();
-			$(".slide").animate({
-				right: '-100%'
-			}, 350);
-			$(".slide1").animate({
-				right: '-100%'
-			}, 350);
-			if ($("#div" + divNum)) {
-
-				$("#div" + divNum).animate({
-					right: '0'
-				}, 350, function() {
-					$("#close").show();
-				});
-			}
-		}
-
-		$(document).ready(function() {
-			$("#close").on("click", function(e) {
-				$(".slide").animate({
-					right: '-200'
-				}, 350);
-				$(this).hide()
-			})
-
-		});		
-	</script>
 	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<ul class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<li>
-				<a href="../form.html">Startseite<a/>
+			<li onclick="window.location='../form.html'">
+				Startseite
 				<span></span><span></span><span></span><span></span>
 			</li>
-			<li>
-				<a href="subpageIntro.html">Learn C#<a/>
+			<li onclick="window.location='subpageIntro.html'">
+				Learn C#
 				<span></span><span></span><span></span><span></span>
 			</li>
 		</ul>
 	</nav>
 <!--<td bgcolor="#424a52">-->
-	<div class="row">
-		<div class="col-2">
+	<div class="rod">
+		<div class="cod-3">
 			<nav>
 				<ul>
 					<li onclick="toggleDiv(1);load_home(0)">
@@ -161,15 +119,14 @@ object{
 						Level 13 - Counter
 						<span></span><span></span><span></span><span></span>
 					</li>
-					<li onclick="toggleDiv(14);load_home(13)">
+					<li onclick="download('LevelHTMLDokumente.zip')">
 						Level 14 - Referenz
 						<span></span><span></span><span></span><span></span>
 					</li>
 				</ul>
 			</nav>
 		</div>
-		<div class="col-2"></div>
-	<div class="col-8">
+	<div class="cod-9">
 		<div id="wrap">
 			<div id="grad">
 				<div id="right-content">
@@ -187,17 +144,17 @@ object{
 					</div>
 					<!--Div2-->
 					<div class="slide" id="div2">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
+							<h1>Level 1: String</h1>
 								<div id="preview-comment"></div>
-									<div id="includedContent"></div>
-									<div id="Inhalt1"></div>
+								<div id="Inhalt1"></div>
 							</div>
 						</div>
 					</div>
 					<!--Div2 Ende -->
 					<div class="slide" id="div3">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -207,7 +164,7 @@ object{
 					</div>
 					<!--Div3 Ende -->
 					<div class="slide" id="div4">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -217,7 +174,7 @@ object{
 					</div>
 					<!--Div4 Ende -->
 					<div class="slide" id="div5">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -227,7 +184,7 @@ object{
 					</div>
 					<!--Div5 Ende -->
 					<div class="slide" id="div6">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -237,7 +194,7 @@ object{
 					</div>
 					<!--Div6 Ende -->
 					<div class="slide" id="div7">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -247,7 +204,7 @@ object{
 					</div>
 					<!--Div7 Ende -->
 					<div class="slide" id="div8">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -257,7 +214,7 @@ object{
 					</div>
 					<!--Div8 Ende -->
 					<div class="slide" id="div9">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -267,7 +224,7 @@ object{
 					</div>
 					<!--Div9 Ende -->
 					<div class="slide" id="div10">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -277,7 +234,7 @@ object{
 					</div>
 					<!--Div10 Ende -->
 					<div class="slide" id="div11">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -287,7 +244,7 @@ object{
 					</div>
 					<!--Div11 Ende -->
 					<div class="slide" id="div12">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -297,7 +254,7 @@ object{
 					</div>
 					<!--Div12 Ende -->
 					<div class="slide" id="div13">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -307,7 +264,7 @@ object{
 					</div>
 					<!--Div13 Ende -->
 					<div class="slide" id="div14">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>
@@ -317,7 +274,7 @@ object{
 					</div>
 					<!--Div14 Ende -->
 					<div class="slide" id="div15">
-						<div id="conent">
+						<div id="content">
 							<div class="beitrag">
 								<div id="preview-comment"></div>
 								<div id="includedContent"></div>

@@ -6,39 +6,32 @@
 
 	<!-- Theme -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="plugin/codemirror/lib/codemirror.css">
-	<link rel="stylesheet" href="plugin/codemirror/theme/ambiance.css">
 	<link rel="stylesheet" href="css/main.css">
 	<!-- Script -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="plugin/codemirror/lib/codemirror.js"></script>
-	<script src="plugin/codemirror/mode/clike/clike.js"></script>
-
 </head>
 
 <body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li>
-					<a href="form.html">Startseite<a/>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<ul class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<li onclick="window.location='form.html'">
+					Startseite
 					<span></span><span></span><span></span><span></span>
 				</li>
-				<li>
-					<a href="subpages/subpageIntro.html">Learn C#<a/>
+				<li onclick="window.location='subpages/subpageIntro.html'">
+					Learn C#
 					<span></span><span></span><span></span><span></span>
 				</li>
 			</ul>
 		</nav>
 	</div>
 	<div id="bild">
+		<div id=col-12>
 		<div id="wrap">
 			<div id="grad">
 				<div id="content">
 
-					<div class="beitrag">
+					<div class="beitragform">
 						<h1>Beschreibung</h1>
 						<p>Wolltest du schon immer ein Rollenspiel schreiben wusstest aber nicht, wie man programmiert?</p>
 						<p>Hast du Interesse daran, dir spielerisch ein Basiswissen in C# aufzubauen?</p>
@@ -48,7 +41,7 @@
 						Unser Code liegt als Referenz auch am Ende der Lektionen zum Download bereit.</p>
 					</div>
 
-					<div class="beitrag">
+					<div class="beitragform">
 						<h1>About</h1>
 						<p>Wir sind ein junges Entwicklerteam aus Wien, dass mit dem Willen, für simple Anliegen simple Lösungen zu finden, arbeitet. 
 						Mit Spaß an der Sache egal ob c#, java, javascrippt und php. Unsere Projekte sollen euch helfen mit uns an der Welt des Programmierens teil zu nehmen. 
@@ -56,12 +49,34 @@
 						<p>Worauf wartest du noch? </p>
 						<p>Auf los gehts los!</p>
 					</div>
+					
+					<div class="beitragform">
+						<h1>Wie benutzt man die Seite?</h1>
+						<p>Hier erfährst du wie man unsere Webseite verwendet. </p>
+						<div class="pb">
+							<img src="subpages/Anleitung.jpg" alt=""></img>
+						</div>
+						<p>
+							1. Hier kannst du zwischen der Startseite und der Lernseite hin und herwechseln (in späteren Versionen kannst du auch zwischen verschiedenen Programmiersprachen hin und her wechseln</p>
+						<p>
+							2. Hier findest du die einzelnen Lektion auf der Webseite, sie sind in verschiedenen Level unterteilt. Wir raten dir mit Level 1 anzufangen, weil die Kapitel/Level aufeinander aufgebaut sind.
+						</p>
+						<p>
+							3. Jedes Level ist aufgeteilt zwischen einen Theorie Teil und einen Programmierteil. Die Console zum Programmieren wird schwarz dargestellt.
+						</p>
+						<p>
+							4. Dieser Button wird benötigt damit du deinen Code ausführen kannst. Nach drücken des Buttons erscheint ein Fenster, dass dir dann sagt ob du die Aufgabe geschafft hast oder nicht.
+						</p>
+						<p>
+							5. Hier ist die Konsole in der du Programmieren wirst. In jedem Level ist eine Konsole schon mit Code vorbereitet den du dann verändern und erweitern darfst.
 
-					<div class="beitrag">
-						<button type="button" class="btn btn-dark active" id="button"><a href="subpages/subpageIntro.html">Get Started</a></button>
+							Wenn du dich in der Konsole befindest, kannst du durch drücken der F11 Taste die Konsole in den Vollbildmodus wechseln lassen damit du dir einfacher tust beim Programmieren.
+						</p>
+					</div>
 
+					<div class="beitragform">
 						<!-- Infos ueber uns -->
-						<div class="beitrag">
+						<div class="beitragform">
 							<h1>Kontakt</h1>
 							<h3>Teamleiter</h3>
 							&nbsp;Lukas Feichtinger<br />
@@ -78,13 +93,11 @@
 						</div>
 					</div>
 					<!--Ende Contend -->
-					<div id="footer">
-						<a href="">Impressum</a>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 
 </html>

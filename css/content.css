@@ -1,4 +1,6 @@
 /* CSS Document */
+
+/* Formatierung der Subpages */
 h1{
 	font-size: 1.7em;
     padding: 0 0 10px 0;
@@ -47,13 +49,23 @@ h1.Schritt5{
 	color: #FFAF00;
 }
 
-table#t01 tr:nth-child(even) {
-    background-color: #aaa;
+.button{
+	float:right;
+	margin: 5px;
+	border-radius: 5px;
+	color: black;
+	background-color: transparent;
+	width: 100px;
+	height: 35px;
 }
-table#t01 tr:nth-child(odd) {
-    background-color: #bbb;
+.button:hover{
+	background-color: maroon;
+	color: black;
 }
-table#t01 th {
-    color: white;
-    background-color: black;
+
+.pb{
+	padding: 10px;
+	margin:10px;
+	display: block;
+	text-align: center;
 }

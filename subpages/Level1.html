@@ -1,61 +1,78 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
-<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="../plugin/codemirror/theme/ambiance.css">
 
-<!-- Script -->
-<script src="../js/jquery.min.js"></script>
-<script src="../plugin/codemirror/lib/codemirror.js"></script>
-<script src="../plugin/codemirror/mode/clike/clike.js"></script>
-<link rel="stylesheet" href="../css/content.css">
-
-<h1>Level 1: String </h1>
-<p>
-  Ein String ist ein Datentyp in C# und repräsentiert eine nicht veränderbare Kette von Unicode-Zeichen. Es wird also Text in eine Variable gespeichert. Die Syntax für Strings sieht so aus:
-</p>
-<p>
-string variablenname= “Mein Inhalt.”;
-</p>
-<p>
-Ausgeben kann man Variablen in C# indem man Console.WriteLine (variablenname) schreibt.
-Wenn man keine Variable, sondern nur einen bestimmten Text, ausgeben will, muss man den Teil innerhalb der Klammern in Anfühungszeichen schreiben.
-</p>
-<h3>
-  Beispiel:
-</h3>
-<p>
-  Console.WriteLine(“Hier steht Text!”);
-
-</p>
-<b>
-Aufgabe 1
-</b>
-<p>
-  Gib den Namen Thomas oder Susi aus.
-</p>
-<b>
-  Aufgabe 2
-</b>
-<p>
-  Speichere den Namen Thomas oder Susi in die Variable "Name" und gib diese aus.
-</p>
-<b>
-  Aufgabe 3
-</b>
-<p>
-  Speichere “Ich kann auch ganze Sätze schreiben!” in den String "Satz" und gib diesen String aus.
-</p>
+	<!-- Script -->
+	<script src="../js/jquery.min.js"></script>
+	<script src="../plugin/codemirror/lib/codemirror.js"></script>
+	<script src="../plugin/codemirror/mode/clike/clike.js"></script>
+	<script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
+	<link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
+	
+	<link rel="stylesheet" href="../css/content.css">
+<body>
+	<div>
+			Ein String ist ein Datentyp in C# und repräsentiert eine nicht veränderbare Kette von Unicode-Zeichen. 
+			Es wird also Text in eine Variable gespeichert. Die Syntax für Strings sieht so aus:
+		<br />
+		<br />
+		
+			string variablenname= “Mein Inhalt.”;
+		<br />
+		<br />
+		
+			Ausgeben kann man Variablen in C# indem man Console.WriteLine (variablenname) schreibt.
+			Wenn man keine Variable, sondern nur einen bestimmten Text, ausgeben will, muss man den Teil innerhalb der Klammern in Anfühungszeichen schreiben.
+		<br />
+		<br />
+		<h3>
+			Beispiel:
+		</h3>
+		
+			Console.WriteLine(“Hier steht Text!”);
+		<br />
+		<br/>
+		<b>
+			Aufgabe 1
+		</b><br/>
+		
+			Gib den Namen Thomas oder Susi aus. <br/>
+		
+		<b>
+			Aufgabe 2
+		</b>
+		<br/>
+			Speichere den Namen Thomas oder Susi in die Variable "Name" und gib diese aus.<br/>
+		
+		<b>
+			Aufgabe 3
+		</b><br/>
+		
+			Speichere “Ich kann auch ganze Sätze schreiben!” in den String "Satz" und gib diesen String aus.
+		
+	</div>
+	<button class="button" id="run">Start Code</button>
+	<br/>
+	<br/>
 <div id="codeeditor"></div>
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
 value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n//Your code goes here										\n				Console.WriteLine("Thomas");				\n			}			\n		}		\n	}',
 mode : "clike",
-theme : "ambiance"
+theme : "ambiance",
+lineNumbers:true,
+ extraKeys: {
+        "F11": function(cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+      }
 });
-</script>
-<button id="run">Run</button>
 
-<script>
 $(document).ready(function(){
 $("button").click(function(){
 
@@ -95,7 +112,7 @@ console.log(editor.value);
 console.log(areaContent);
 
 } else if (response.Result.includes('Thomas') || response.Result.includes('Susi')) { // Desired result
-alert("Aufgabe 1 gelöst!"); // confirmation
+alert(JSON.stringify(response.Result)); // confirmation
 // document.getElementById("Output").style.borderColor = "red";
 } else {
 console.log("Come on");

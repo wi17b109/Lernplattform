@@ -7,6 +7,8 @@
 <script src="../plugin/codemirror/lib/codemirror.js"></script>
 <script src="../plugin/codemirror/mode/clike/clike.js"></script>
 <link rel="stylesheet" href="../css/content.css">
+<script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
+<link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
 <h1>
   Level 11: Schleifen (For)
 
@@ -56,16 +58,27 @@ I wird als mitlaufende Zahl in der for-Schleife für Berechnungen herangezogen.
   </p>
   <p>
     Gib den Angriffswert des dritten Monsters aus.
+  </p>
+  <button class="button" id="run">Start Code</button>
+  <br/><br/>
   <div id="codeeditor"></div>
   <script>
 
   var editor = CodeMirror(document.getElementById("codeeditor"),{
   value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{		\n public Monster(int currentHitPoints, int maximumHitPoints, int level, int attack, int defense, string name) : base(currentHitPoints, maximumHitPoints, level, attack, defense, name) \n        {\n        }							\n //Your code goes here 			\n xxx (xxx)            {\n                monsters[i] = new Monster(10 + i, 10 + i, 1+i, 1+i i+1, "Monster" + i);\n            } \n			\n			}			\n		}		\n	}',
             mode : "clike",
-            theme : "ambiance"
+            theme : "ambiance",
+lineNumbers:true,
+ extraKeys: {
+        "F11": function(cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+      }
             });
   </script>
-  <button id="run">Run</button>
 
   <script>
   $(document).ready(function(){
