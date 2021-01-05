@@ -62,7 +62,9 @@
 
 </b>
 
-In jeder geraden Runde schlägst du den Gegner. In jeder ungeraden schlägt er dich.<br />
+Hier haben wir den Anfang eines Swicht erstellt. Verfollständige den Code, indem du statt den XXX einen Switch einbaust. Bei einer geraden Runde soll der Teil mit hp = 1 ausgeführt werden, bei einer ungeraden Runde soll hp = 2 ausgeführt werden.
+<br />
+
 Mit welchem Oprator kannst du feststellen, ob die Runde gerade oder ungerade ist? (Tipp: Level3!) <br/>
 Vervollständige die Funktion.
 
@@ -73,7 +75,7 @@ Vervollständige die Funktion.
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
-value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester\n{\n  public class Program\n  {\n    public static void Main(string[] args)\n    {\n      //Your code goes here\n    }\n  }\n}\nprivate void battle()\n{  int roundcounter = 0;\n  battle();\n           public void battle()\n            xxx \n          {    \n            xxx     \n              hp = hitpointsBerechnen(player.Attack, curMonster.Defense, curMonster.CurrentHitPoints);        \n            curMonster.CurrentHitPoints = hp;          \n          xxx            \n        xxx             \n  xxx                    hp = hitpointsBerechnen(curMonster.Attack, player.Defense, player.CurrentHitPoints);\n                    player.CurrentHitPoints = hp;  \n                  xx    \n               xxx       \n    \n }',
+value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester\n{\n  public class Program\n  {\n    public static void Main(string[] args)\n    {\n      //Your code goes here\n    }\n\n    private int battle()\n    {\n      int roundCounter = 0;\n      int hp = 0;\n\n      xxxx (xxxxx x xxxxx)\n      {\n        xxxxx x:\n          hp = 1;\n          break;\n        xxxxxx x:\n          hp = 2;\n          break;\n      }\n      roundCounter++;\n      return hp;\n    }\n  }\n}',
 mode : "clike",
 theme : "ambiance",
 lineNumbers:true,
