@@ -106,15 +106,13 @@
 </b>
   Speichere 8 in die Variable b, zähle sie einmal herunter und gibt sie aus. <br />
 </p>
-
-   </p>
    <button class="button" id="run">Start Code</button>
    <br/><br/>
    <div id="codeeditor"></div>
  <script>
 
  var editor = CodeMirror(document.getElementById("codeeditor"),{
- value: 'using System; \n using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {                  \n //Your code goes here             \n      }     \n    }   \n  }',
+ value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester\n{\n  public class Program\n  {\n    public static void Main(string[] args)\n    {\n    //Your code goes here\n    }\n  }\n}',
  mode : "clike",
  theme : "ambiance",
 lineNumbers:true,

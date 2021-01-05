@@ -32,6 +32,13 @@ oder bei normalen Datentypen direkt wie bei einer Variable ein Wert zugewiesen z
 <i>
   zahl[0]=0;
 </i>
+</p>
+<p>
+  Auf die Variablen des Arrays kann man folgendermaßen zugreifen: <br />
+  <i>
+    m[0].attack;
+  </i>
+  -> in der eckigen Klammer kann die Stelle des Arrays definiert werden, mit <i>.attack</i> wird auf Attack von m[0] zugegriffen
   </p>
 <p>
 <b>
@@ -49,15 +56,13 @@ Erstelle ein Array aus Monstern mit der Größe 2 <br />
   Defense: 2 <br />
   Name:  Heinrich Himbeer <br /><br />
   Erinnere dich: Die Werte hießen "attack", "defence", "level" und "maxHitPoints"  <br />
-  </p>
-  </p>
-  <button class="button" id="run">Start Code</button>
+  </p>  <button class="button" id="run">Start Code</button>
   <br/><br/>
   <div id="codeeditor"></div>
   <script>
 
   var editor = CodeMirror(document.getElementById("codeeditor"),{
-  value: 'using System; \n  using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {                 \n //Your code goes here            \n  xxx Monster[] monsters = xxx xxx xxx \n   }     \n    }   \n  }',
+  value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester\n{\n  public class Program\n  {\n    public static void Main(string[] args)\n    {\n      //Your code goes here\n      xxx Monster[] monsters = xxx xxx xxx \n    }\n  }\n}',
   mode : "clike",
   theme : "ambiance",
 lineNumbers:true,
