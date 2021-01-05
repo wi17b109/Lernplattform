@@ -14,11 +14,53 @@
   Eine Klasse ist eine Gruppe verwandter Funktionen und Variablen. In der Klasse werden dann die benötigten Variablen definiert und die Funktionen und Konstruktoren geschrieben. Eine Klasse wird so definiert:
 </p>
 <i>
+  <p>
+
   class Programm { <br />
     // hier wird der Code geschrieben <br />
   } <br/>
+</p>
 </i>
+<p>
+  Wir haben bisher nur "fields" (Umgebungen) verwendet.<br>
+  Wenn wir unsere Felder zu properties erweitern müssen wir noch getter und setter hinzufügen.<br>
+<i>
 
+  int maxHitPoints;<br>
+</i>
+  wird also zu<br>
+  <i>
+
+    public int maxHitPoints {get;set;}<br>
+  </i>
+<br>
+  Aber was sind properties, getter und setter überhaupt und wieso brauchen wir sie?<br>
+  get und set sind praktisch zwei verschiedene Methoden. Lesen (get) und schreiben (set).<br>
+  Wenn eine Variable zu einer property wird können wir auch von anderen Klassen aus darauf zugreifen und sie verändern.
+<br>
+Eine Property verwenden wir, weil:
+<ul>
+  <li>
+    <p style="margin: 0px;">
+    Etwas wie eine Variable aussehen soll
+  </p>
+    </li>
+    <li>
+      <p style="margin: 0px;">
+      Das Lesen schnell geht
+    </p>
+      </li>
+      <li>
+        <p style="margin: 0px;">
+        Eigenschaften eines Objekts in beliebiger Reihenfolge gesetzt werden können
+      </p>
+        </li>
+        <li>
+          <p style="margin: 0px;">
+          Die Werte sich nicht schnell ändern
+        </p>
+          </li>
+  </ul>
 <b>
   Aufgabe 1
 </b>
@@ -33,8 +75,9 @@ Sie brauchen daher eine maximale Anzahl an Hitpoints, die momentanen Hitpoints (
   Aufgabe 2
 </b>
 <p>
-  Schreibe die folgende Klasse fertig aus:
-  <br />BaseCharacter.cs
+
+  Schreibe die Klasse fertig aus indem du alle Variablen zu properties machst.
+</p>
 
   </p>
   <button class="button" id="run">Start Code</button><br/><br/>
@@ -42,7 +85,7 @@ Sie brauchen daher eine maximale Anzahl an Hitpoints, die momentanen Hitpoints (
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
-value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n // Ersetze xxx durch den jeweiligen Datentypen \n xxx maxHitPoints; \n xxx currHitPoints; \n xxx currLvl; \n xxx attack; \n xxx defense; \n xxx name; \n //Your code goes here 						\n			}			\n		}		\n	}',
+  value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester     \n  {       \n  public class Program        \n    {         \n    public static void Main(string[] args)            \n      {         \n // Ersetze xxx durch den jeweiligen Datentypen \n xxx maxHitPoints; \n xxx currHitPoints; \n xxx currLvl; \n xxx attack; \n xxx defense; \n xxx name; \n //Your code goes here             \n      }     \n    }   \n  }',
 mode : "clike",
 theme : "ambiance",
 lineNumbers:true,
@@ -80,38 +123,27 @@ whatIWantToDoWithMyResponseWhenItFails(data);
 // In success case, use compiled result
 function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
 var areaContent = editor.getValue();
-console.log(areaContent);
-console.log('Yaay Success');
-console.log(response);
-console.log(response.Result);
 
 if (areaContent.includes('int maxHitPoints') && areaContent.includes('int currHitPoints') && areaContent.includes('int currLvl') && areaContent.includes('int attack') && areaContent.includes('int defense') && areaContent.includes('string name') ) { // Desired result
-// desired change, if the result contains the desired result
-console.log("Alright");
-alert("Aufgabe 1 gelöst!"); // confirmation
+  alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
+} else if (areaContent.includes('public int maxHitPoints') && areaContent.includes('public int currHitPoints') && area.includes('get;') && areaContent.includes('set;') && areaContent.includes('public int currLvl') && areaContent.includes('public int attack') && areaContent.includes('public int defense') && areaContent.includes('public string name') ) { // Desired result
+alert("Aufgabe 2 gelöst!"); // desired change or output, if the result contains the desired result
+} else if (!areaContent.includes(');')) {
+    alert("Vergiss nicht den Strichpunkt ;)");
 } else {
-console.log("Come on");
-alert("Leider nicht korrekt!"); // confirmation
-
+alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // desired change or output, if the result contains the desired result
 }
 }
-
 function whatIWantToDoWithMyResponseWhenItFails(response) {
-console.log('Yaay Failure');
-console.log(response);
+  // Here you can write what you want to do if errors are thrown when trying to compile the code
 }
-
 });
 });
-
 </script>
 <script>
 $(document).ready(function(){
 $("response").click(function(){
-
-console.log("response")
 });
 });
-
 </script>
 </body>

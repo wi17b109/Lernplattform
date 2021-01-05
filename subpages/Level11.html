@@ -27,36 +27,39 @@ Im folgenden Beispiel wird ein Array aus int-Elementen erstellt. Anschließend w
 
 I wird als mitlaufende Zahl in der for-Schleife für Berechnungen herangezogen.
 </p>
-<p>
+<p  style="margin: 0px;">
   <i>
     int[] a = new int [x]; <br />
-
     for(int i = 0; i < a.length; i ++){
 <p style="margin: 0px; margin-left: 15px;">
       a[i] = i*i;
     </p>
+    <p  style="margin: 0px;">
 
     } <br />
-
     for(int i = 0; i < a.length; i++){
+</p>
 <p style="margin: 0px; margin-left: 15px;">
 
       Console.WriteLine($”a[{1}] = {a[1]}”);
     </p>
+<p>
 
-    } <br />
+    }
+  </p>
 
   </i>
   </p>
+  <p>
+
 <b>
 
-  Aufgabe
+  Aufgabe 1:<br />
 </b>
-<p>
- Aufgabe1:
-  Befülle ein 10er Array mit 10 verschiedenen Monstern.
-  </p>
-  <p>
+  Befülle ein 10er Array mit 10 verschiedenen Monstern.<br />
+    <b>
+      Aufgabe 2:<br />
+    </b>
     Gib den Angriffswert des dritten Monsters aus.
   </p>
   <button class="button" id="run">Start Code</button>
@@ -65,7 +68,7 @@ I wird als mitlaufende Zahl in der for-Schleife für Berechnungen herangezogen.
   <script>
 
   var editor = CodeMirror(document.getElementById("codeeditor"),{
-  value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{		\n public Monster(int currentHitPoints, int maximumHitPoints, int level, int attack, int defense, string name) : base(currentHitPoints, maximumHitPoints, level, attack, defense, name) \n        {\n        }							\n //Your code goes here 			\n xxx (xxx)            {\n                monsters[i] = new Monster(10 + i, 10 + i, 1+i, 1+i i+1, "Monster" + i);\n            } \n			\n			}			\n		}		\n	}',
+  value: 'using System; \n  using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {   \n public Monster(int currentHitPoints, int maximumHitPoints, int level, int attack, int defense, string name) : base(currentHitPoints, maximumHitPoints, level, attack, defense, name) \n        {\n        }              \n //Your code goes here      \n xxx (xxx)            {\n                monsters[i] = new Monster(10 + i, 10 + i, 1+i, 1+i i+1, "Monster" + i);\n            } \n      \n      }     \n    }   \n  }',
             mode : "clike",
             theme : "ambiance",
 lineNumbers:true,
@@ -103,44 +106,24 @@ lineNumbers:true,
   // In success case, use compiled result
   function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
   var areaContent = editor.getValue();
-  console.log(areaContent);
-  console.log('Yaay Success');
-  console.log(response);
-  console.log(response.Result);
-
-  if (response.Result.includes() && areaContent.includes('Console.WriteLine(')) {// Desired result
-  // desired change, if the result contains the desired result
-  console.log("Alright");
-  alert("Aufgabe 2 gelöst!"); // confirmation
-
+  if (response.Result.includes('4') && areaContent.includes('Console.WriteLine(monsters[3].attack);')) {// Desired result
+    alert("Aufgabe 2 gelöst!"); // desired change or output, if the result contains the desired result
   }
-  else if (areaContent.includes('get { return player; }'))  { // Desired result
-  // desired change, if the result contains the desired result
-  console.log("Alright");
-  alert("Aufgabe 1 gelöst!"); // confirmation
-  } else {
-  console.log("Come on");
-  alert("Leider nicht korrekt!"); // confirmation
-
-  }
-  }
-
-  function whatIWantToDoWithMyResponseWhenItFails(response) {
-  console.log('Yaay Failure');
-  console.log(response);
-  }
-
+  else if (areaContent.includes('for(int i = 0; i < monsters.length; i++){ '))  { // Desired result
+    alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
+} else {
+alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // confirmation
+}
+}
+function whatIWantToDoWithMyResponseWhenItFails(response) {
+}
   });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("response").click(function(){
   });
-
-  </script>
-  <script>
-  $(document).ready(function(){
-  $("response").click(function(){
-
-  console.log("response")
-  });
-  });
-
-  </script>
-  </body>
+});
+</script>
+</body>

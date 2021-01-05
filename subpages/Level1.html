@@ -12,45 +12,53 @@
 	
 	<link rel="stylesheet" href="../css/content.css">
 <body>
-	<div>
-			Ein String ist ein Datentyp in C# und repräsentiert eine nicht veränderbare Kette von Unicode-Zeichen. 
+	<div><p>
+
+
+			Ein String ist ein Datentyp in C# und repräsentiert eine nicht veränderbare Kette von Unicode-Zeichen.
 			Es wird also Text in eine Variable gespeichert. Die Syntax für Strings sieht so aus:
 		<br />
 		<br />
-		
-			string variablenname= “Mein Inhalt.”;
+
+			<i>
+				string variablenname= “Mein Inhalt.”;
+			</i>
 		<br />
 		<br />
-		
+
 			Ausgeben kann man Variablen in C# indem man Console.WriteLine (variablenname) schreibt.
 			Wenn man keine Variable, sondern nur einen bestimmten Text, ausgeben will, muss man den Teil innerhalb der Klammern in Anfühungszeichen schreiben.
 		<br />
 		<br />
-		<h3>
-			Beispiel:
-		</h3>
-		
+		<b>
+			Beispiel:<br />
+		</b>
+
+		<i>
 			Console.WriteLine(“Hier steht Text!”);
-		<br />
-		<br/>
+
+		</i>
+		</p>
+		<p>
+
 		<b>
 			Aufgabe 1
 		</b><br/>
-		
 			Gib den Namen Thomas oder Susi aus. <br/>
-		
-		<b>
+			
+	<b>
 			Aufgabe 2
 		</b>
 		<br/>
 			Speichere den Namen Thomas oder Susi in die Variable "Name" und gib diese aus.<br/>
-		
+
 		<b>
 			Aufgabe 3
 		</b><br/>
-		
+
 			Speichere “Ich kann auch ganze Sätze schreiben!” in den String "Satz" und gib diesen String aus.
-		
+		</p>
+
 	</div>
 	<button class="button" id="run">Start Code</button>
 	<br/>
@@ -59,7 +67,7 @@
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
-value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n//Your code goes here										\n				Console.WriteLine("Thomas");				\n			}			\n		}		\n	}',
+value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester			\n	{				\n	public class Program				\n		{					\n		public static void Main(string[] args)						\n			{					\n			//Your code goes here										\n						\n			}			\n		}		\n	}',
 mode : "clike",
 theme : "ambiance",
 lineNumbers:true,
@@ -95,48 +103,29 @@ whatIWantToDoWithMyResponseWhenItFails(data);
 // In success case, use compiled result
 function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
 var areaContent = editor.getValue();
-console.log(areaContent);
-console.log('Yaay Success');
-console.log(response);
-console.log(response.Result);
 
 if (response.Result.includes('Ich kann auch ganze Sätze schreiben!') && areaContent.includes('string Satz')) { // Desired result
-//  document.getElementById("Output").style.borderColor = "green";
-// desired change, if the result contains the desired result
-console.log("Alright");
-alert("Aufgabe 3 gelöst!"); // confirmation
-} else if ((response.Result.includes('Thomas') && areaContent.includes('string Name')) || (response.Result.includes('Susi') && areaContent.includes('string Name'))) {
-// Desired result
-alert("Aufgabe 2 gelöst!"); // confirmation
-console.log(editor.value);
-console.log(areaContent);
-
+alert("Aufgabe 3 gelöst!"); // desired change or output, if the result contains the desired result
+} else if ((response.Result.includes('Thomas') && areaContent.includes('string Name')) || (response.Result.includes('Susi') && areaContent.includes('string Name'))) { // Desired result
+alert("Aufgabe 2 gelöst!"); // desired change or output, if the result contains the desired result
 } else if (response.Result.includes('Thomas') || response.Result.includes('Susi')) { // Desired result
-alert(JSON.stringify(response.Result)); // confirmation
-// document.getElementById("Output").style.borderColor = "red";
+alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
+} else if ((areaContent.includes('Thomas)') || areaContent.includes('Susi)') || areaContent.includes('string Satz')) && !areaContent.includes(');')) {
+	alert("Vergiss nicht den Strichpunkt ;)");
 } else {
-console.log("Come on");
-alert("RETARD ALERT"); // confirmation
-
+alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // confirmation
 }
 }
-
 function whatIWantToDoWithMyResponseWhenItFails(response) {
-console.log('Yaay Failure');
-console.log(response);
+	// Here you can write what you want to do if errors are thrown when trying to compile the code
 }
-
 });
 });
-
 </script>
 <script>
 $(document).ready(function(){
 $("response").click(function(){
-
-console.log("response")
 });
 });
-
 </script>
 </body>

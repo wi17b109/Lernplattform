@@ -13,7 +13,9 @@
   Level 5: Vererbung
 </h1>
 <p>
-  In diesem Beispiel geht es nur um Theorie. Es gibt keine Aufgabe, die zu lösen ist.
+  <b>
+    Level 5 ist ein Theoriekapitel. Es gibt hier nichts zu coden.  <br />
+  </b>
   Vererbung ermöglicht die Erstellung neuer Klassen, die in anderen Klassen definiertes Verhalten wiederverwenden, erweitern und ändern.
   Die Klasse, deren Member vererbt werden, wird Basisklasse genannt, und die Klasse, die diese Member erbt, wird abgeleitete Klasse genannt. Eine abgeleitete Klasse kann nur eine direkte Basisklasse haben.
 </p>
@@ -23,35 +25,47 @@
 <p>
   Die Vererbung wird in der abgeleiteten Klasse folgendermaßen definiert:
 </p>
+<p>
+
 <i>
   class Cat : Animal {
   <br /><br />
   } <br />
 </i>
+</p>
 
 <p>
 
-  Cat erbt also die Eigenschaften von Animal und hat zusätzliche Eigenschaften die spezifisch für Katzen sind.
-  Codebeispiel:
+  Cat erbt also die Eigenschaften von Animal und hat zusätzliche Eigenschaften die spezifisch für Katzen sind.<br />
+  <b><br />
+Codebeispiel:
+</b>
+</p>
+<p  style="margin-bottom: 0px;">
+  <i>
+  public class Animal {
+    <p style="margin: 0px 0px 0px 30px;">
+    public string Name { get; set; }<br />
+    // Da Sie nun eine Klasse haben, die Animal im Allgemeinen darstellt, können Sie eine Klasse definieren, die die Besonderheiten bestimmter Tiere beschreibt.
   </p>
-  <button class="button" id="run">Start Code</button><br/><br/>
-  <div id="codeeditor"></div>
-
-  <script>
-
-  var editor = CodeMirror(document.getElementById("codeeditor"),{
-  value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{					\n public class Animal { \n  public string Name { get; set; } \n  // Da Sie nun eine Klasse haben, die Animal im Allgemeinen darstellt, können Sie eine Klasse definieren, die die Besonderheiten bestimmter Tiere beschreibt.  \n public class Cat : Animal{ \n  public Cat() \n     {        \n Name = "Cat";  \n   } \n public void Scratch(Object furniture)    { \n        // ... \n   }} \n // Klasse A soll von Klasse B erben (allgemein, nicht bezogen auf das Spiel) 			}			\n		}		\n	}',
-  mode : "clike",
-  theme : "ambiance",
-lineNumbers:true,
- extraKeys: {
-        "F11": function(cm) {
-          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-        },
-        "Esc": function(cm) {
-          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-        }
-      }
-  });
-  </script>
+}
+<p style="margin: 15px 0px 0px 0px;">
+public class Cat : Animal {
+  <p style="margin: 0px 0px 0px 30px;">
+    public Cat () {
+  </p>
+      <p style="margin: 0px 0px 0px 60px;">
+        Name = "Cat"; <br />
+      </p>
+      <p style="margin: 0px 0px 0px 30px;">
+    }<br /><br />
+      </p>
+    <p style="margin: 0px 0px 0px 30px;">
+    public void Scratch (Object furniture) {<br />
+        // ... <br />
+    }
+  </p>
+}
+</i>
+</p>
 </body>

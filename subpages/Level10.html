@@ -15,30 +15,41 @@
 <p>
   Ein Array ist eine Datenstruktur, die eine Anzahl von Variablen enthält, auf die über berechnete Indizes zugegriffen wird.
   Die in einem Array enthaltenen Variablen, die auch als Elemente des Arrays bezeichnet werden, weisen alle denselben Typ auf. Dieser Typ wird als Elementtyp des Arrays bezeichnet.
-  Arraytypen sind Verweistypen, und die Deklaration einer Arrayvariablen reserviert Speicher für einen Verweis auf eine Arrayinstanz. Die tatsächlichen Arrayinstanzen werden unter Verwendung des new-Operators zur Laufzeit dynamisch erstellt. Der new-Vorgang legt die Länge der neuen Arrayinstanz fest, die dann für die Lebensdauer der Instanz beibehalten wird. Die Indizes der Arrayelemente reichen von 0 bis Length - 1. Der new-Operator initialisiert die Elemente eines Arrays automatisch mit ihren Standardwerten. Dieser lautet z.B. für alle numerischen Typen 0 und für alle Verweistypen null.
+  Arraytypen sind Verweistypen, und die Deklaration einer Arrayvariablen reserviert Speicher für einen Verweis auf eine Arrayinstanz. Die tatsächlichen Arrayinstanzen werden unter Verwendung des new-Operators zur Laufzeit dynamisch erstellt. Der new-Vorgang legt die Länge der neuen Arrayinstanz fest, die dann für die Lebensdauer der Instanz beibehalten wird. Die Indizes der Arrayelemente reichen von 0 bis Length - 1. Der new-Operator initialisiert die Elemente eines Arrays automatisch mit ihren Standardwerten. Dieser lautet z.B. für alle numerischen Typen 0 und für alle Verweistypen null.<br /><br />
+  Ein Array wird folgendermaßen initialisiert:<br />
+  Datentyp[] name=new Datentyp[Arraygröße]:<br />
+  <b>Beispiel:</b><br />
+  <i>
+  int[] zahl = new int[2];<br />
+</i>
 
+Um dem Array Werte zuzuweisen, wird entweder der Konstruktor der Klasse verwendet z.B. <br />
+<i>
+  Monster[] m=new Monster[10];<br />
+  m[0]=new Monster(1,2);<br />
+</i>
+oder bei normalen Datentypen direkt wie bei einer Variable ein Wert zugewiesen z.B.<br />
+<i>
+  zahl[0]=0;
+</i>
   </p>
-<b>
-  Aufgabe
-</b>
 <p>
-  Aufgabe 1: Erstelle ein Array aus Monstern mit der Größe 2 <br />
-  Aufgabe 2:
-  Erstelle ein Monster an der Stelle 2 des Arrays und gib ihm die folgenden Werte: <br /><br />
+<b>
+  Aufgabe 1:<br />
+</b>
+Erstelle ein Array aus Monstern mit der Größe 2 <br />
 <b>
 
-  </b>
-
-  18 hitpoints <br />
-
-  Level 2 <br />
-
-  2 Angriff <br />
-
-  2 Defense <br />
-
-  Name:  Heinrich Himbeer <br />
-
+  Aufgabe 2:<br />
+</b>
+  Erstelle ein Monster an der Stelle 2 des Arrays und gib ihm die folgenden Werte: <br /><br />
+  Hitpoints: 18 <br />
+  Level: 2 <br />
+  Angriff: 2 <br />
+  Defense: 2 <br />
+  Name:  Heinrich Himbeer <br /><br />
+  Erinnere dich: Die Werte hießen "attack", "defence", "level" und "maxHitPoints"  <br />
+  </p>
   </p>
   <button class="button" id="run">Start Code</button>
   <br/><br/>
@@ -46,7 +57,7 @@
   <script>
 
   var editor = CodeMirror(document.getElementById("codeeditor"),{
-  value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n //Your code goes here 						\n			}			\n		}		\n	}',
+  value: 'using System; \n  using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {                 \n //Your code goes here            \n  xxx Monster[] monsters = xxx xxx xxx \n   }     \n    }   \n  }',
   mode : "clike",
   theme : "ambiance",
 lineNumbers:true,
@@ -84,41 +95,24 @@ lineNumbers:true,
   // In success case, use compiled result
   function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
   var areaContent = editor.getValue();
-  console.log(areaContent);
-  console.log('Yaay Success');
-  console.log(response);
-  console.log(response.Result);
-  if (areaContent.includes('int attack = 2;'))  { // Desired result
-  // desired change, if the result contains the desired result
-  console.log("Alright");
-  alert("Aufgabe 2 gelöst!"); // confirmation
+  if (areaContent.includes('Monster[1].attack = 2; && Monster[1].level = 2; && Monster[1].attack = 2;  '))  { // Desired result
+    alert("Aufgabe 2 gelöst!"); // desired change or output, if the result contains the desired result
 } else if (areaContent.includes('public Monster[] monsters = new Monster[2];'))  { // Desired result
-  // desired change, if the result contains the desired result
-  console.log("Alright");
-  alert("Aufgabe 1 gelöst!"); // confirmation
-  } else {
-  console.log("Come on");
-  alert("Leider nicht korrekt!"); // confirmation
+  alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
+} else {
+alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // confirmation
+}
+}
 
-  }
-  }
-
-  function whatIWantToDoWithMyResponseWhenItFails(response) {
-  console.log('Yaay Failure');
-  console.log(response);
-  }
-
+function whatIWantToDoWithMyResponseWhenItFails(response) {
+}
   });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("response").click(function(){
   });
-
-  </script>
-  <script>
-  $(document).ready(function(){
-  $("response").click(function(){
-
-  console.log("response")
-  });
-  });
-
-  </script>
-  </body>
+});
+</script>
+</body>

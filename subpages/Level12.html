@@ -10,105 +10,76 @@
 <script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
 <link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
 <h1>
-  Level 13: Counter
+  Level 12: Switch Statement
 
 </h1>
 <p>
-  Die folgenden Operatoren führen arithmetische Operationen mit Operanden numerischer Typen aus:
-  <br />Unäre Operatoren: ++ (inkrementell), -- (dekrementell), += (Additionszuweisungsoperator) und -= (Subtraktionszuweisungsoperator)
-<br />Der unäre Inkrementoperator (++) erhöht seinen Operanden um 1. Der Operand muss eine Variable, ein Eigenschaftenzugriff oder ein Indexerzugriff sein.
-<br />Der Inkrementoperator wird in zwei Formen unterstützt: als Postfix-Inkrementoperator x++ und als Präfix-Inkrementoperator ++x.
+  Eine Switch-Anweisung kann man sich wie eine Reihe von If-Anweisungen vorstellen. Sie ist eine Liste verschiedener Fälle, welche zudem jeweils auch eine Aktion beinhalten. Die Switch-Anweisung beinhaltet auch eine optionale Standardaktion (Default
+  Action) welche einsetzt, wenn keine der anderen Fälle mit true bewertet wurde. Ein einfaches Beispiel einer Switch-Anweisung könnte folgendermaßen aussehen:
 
-  </p>
-<b>Beispiel</b>
-
+</p>
 <p>
   <i>
-    int i = 3; <br />
-    Console.WriteLine(a++);   <br />
-    Console.WriteLine(++a);   <br />
+
+    int number = 1;
+    <p style="margin: 0px; margin-left: 15px;">
+
+      switch(number){ <br />
+      case 0:
+      <p style="margin: 0px; margin-left: 30px;">
+        Console.WriteLine(“The number is zero!”); <br />
+        break;
+      </p>
+      <p style="margin: 0px; margin-left: 15px;">
+        case 1:
+      </p>
+      <p style="margin: 0px; margin-left: 30px;">
+
+        Console.WriteLine(“The number is one”); <br />
+        break;
+
+      </p>
+      <p style="margin: 0px; margin-left: 15px;">
+        default:
+      </p>
+      <p style="margin: 0px; margin-left: 30px;">
+        Console.WriteLine(“The number is something else”);
+      </p>
+    </p>
+    }
   </i>
-  </p>
+</p>
 
 <p>
-  Der unäre Dekrementoperator -- verringert seinen Operanden um 1. Der Operand muss eine Variable, ein Eigenschaftenzugriff oder ein Indexerzugriff sein.
-  Der Dekrementoperator wird in zwei Formen unterstützt: als Postfix-Dekrementoperator x-- und als Präfix-Dekrementoperator --x.
+  Der zu prüfende Identifikator wird hinter das switch-Schlüsselwort geschrieben, gefolgt von der Liste an case-Anweisungen, in der wir den Identifikator gegen einen vorgegebenen Wert prüfen. Dir wird auffallen, dass wir am Ende von jedem case eine
+  break-Anweisung haben. Das liegt daran, dass C# verlangt, dass wir den Block vor seinem Ende verlassen.
 
-  </p>
- <b>Beispiel</b>
-<p>
-<i>
-  int i = 3; <br />
-  Console.WriteLine(a--); <br />
-  Console.WriteLine(--a);  <br />
-</i>
-  </p>
-
- <p>
-   Ein Ausdruck mit dem Operator += z.B.
-   <i>
-     x+= y
-
-   </i>
-   für die folgende Syntax:
-   <i>
-     x = x + y
-   </i>
-   außer dass x nur einmal überprüft wird.
-   Im folgenden Beispiel wird die Verwendung des += Operators veranschaulich:
-   <i><br /><br />
-     int i = 5; <br />
-     i += 9;<br />
-
-     string story = “Start.”; <br />
-     story += “End.”; <br />
-     Console.WriteLine(story); <br />
-
-   </i>
-   </p>
+  In diesem Beispiel nutzen wir einen Integer, aber es könnte genauso gut ein String sein, oder jeder andere Datentyp. Außerdem kannst du dieselbe Aktion für mehrere cases spezifizieren. Wir werden das gleich im nächsten Beispiel machen, in dem wir
+  einen Input vom Nutzer nehmen und in unserem switch-Befehl verwenden.
+</p>
 
 <p>
-  Ein Ausdruck mit dem Operator -= z.B.:
-  <i>
-    x -= y
-    </i>
-  macht dasselbe wie folgende Syntax:
-  <i>
-    x = x – y
-    </i>
-, aber x wird nur einmal überprüft.
-  </p>
- <p>
-   Im folgenden Beispiel wird die Verwendung des -= Operators veranschaulicht:
-<i>
-<br /><br />
-  int i = 5; <br />
-  i -= 9; <br />
-  Console.WriteLine(i); <br />
+<b>
+  Aufgabe<br />
 
-  Action a = () => Console.Write(“a”); <br />
-  Action b = () => Console.Write(“b”); <br />
-  var printer = a + b + a; <br />
-  printer(); <br />
+</b>
 
-  printer -= a; <br />
-  printer();<br />
-  Aufgabe1: Zähle die Zahl 2 einmal hoch und gib sie aus.
-  Aufgab2: Speichere 8 in die Variable a, zähle sie einmal herunter und gibt sie aus.
-</i>
+In jeder geraden Runde schlägst du den Gegner. In jeder ungeraden schlägt er dich.<br />
+Mit welchem Oprator kannst du feststellen, ob die Runde gerade oder ungerade ist? (Tipp: Level3!) <br/>
+Vervollständige die Funktion.
 
-   </p>
-   <button class="button" id="run">Start Code</button>
-   <br/><br/>
-   <div id="codeeditor"></div>
- <script>
+</p>
+<button class="button" id="run">Start Code</button>
+<br/><br/>
+<div id="codeeditor"></div>
+<script>
 
- var editor = CodeMirror(document.getElementById("codeeditor"),{
- value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									 \n //Your code goes here 						\n			}			\n		}		\n	}',
- mode : "clike",
- theme : "ambiance",
+var editor = CodeMirror(document.getElementById("codeeditor"),{
+value: 'using System; \n  using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {                 \n //Your code goes here            \n      }     \n    }   \n  } \n private void battle()\n        {            int roundcounter = 0;\n            battle();\n           public void battle()\n            xxx \n          {    \n            xxx     \n              hp = hitpointsBerechnen(player.Attack, curMonster.Defense, curMonster.CurrentHitPoints);        \n            curMonster.CurrentHitPoints = hp;          \n          xxx            \n        xxx             \n  xxx                    hp = hitpointsBerechnen(curMonster.Attack, player.Defense, player.CurrentHitPoints);\n                    player.CurrentHitPoints = hp;  \n                  xx    \n               xxx       \n    \n }',
+mode : "clike",
+theme : "ambiance",
 lineNumbers:true,
- extraKeys: {
+extraKeys: {
         "F11": function(cm) {
           cm.setOption("fullScreen", !cm.getOption("fullScreen"));
         },
@@ -116,68 +87,64 @@ lineNumbers:true,
           if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
         }
       }
- });
- </script>
+});
+</script>
 
- <script>
- $(document).ready(function(){
- $("button").click(function(){
+<script>
+$(document).ready(function(){
+$("button").click(function(){
 
- var to_compile = {
- "LanguageChoice": "1",
- "Program": editor.getValue(),
- "Input": "",
- "CompilerArgs" : ""
- };
+var to_compile = {
+"LanguageChoice": "1",
+"Program": editor.getValue(),
+"Input": "",
+"CompilerArgs" : ""
+};
 
- const url = 'https://rextester.com/rundotnet/api';
- // Ajax call um Code zu compilen
- $.ajax({ url, type: 'POST', data: to_compile })
- .done(function (data) {
- whatIWantToDoWithMyResponseWhenItSucceeds(data);
- })
- .fail(function (data, err) {
- whatIWantToDoWithMyResponseWhenItFails(data);
- });
- // In success case, use compiled result
- function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
- var areaContent = editor.getValue();
- console.log(areaContent);
- console.log('Yaay Success');
- console.log(response);
- console.log(response.Result);
+const url = 'https://rextester.com/rundotnet/api';
+// Ajax call um Code zu compilen
+$.ajax({ url, type: 'POST', data: to_compile })
+.done(function (data) {
+whatIWantToDoWithMyResponseWhenItSucceeds(data);
+})
+.fail(function (data, err) {
+whatIWantToDoWithMyResponseWhenItFails(data);
+});
+// In success case, use compiled result
+function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+var areaContent = editor.getValue();
+console.log(areaContent);
+console.log('Yaay Success');
+console.log(response);
+console.log(response.Result);
 
- if ( response.Result.includes(3)) { // Desired result
- // desired change, if the result contains the desired result
- console.log("Alright");
- alert("Aufgabe 1 gelöst!"); // confirmation
-} else  if ( response.Result.includes(9) && areaContent.includes('int a') && areaContent.includes('a++;')) { // Desired result
- // desired change, if the result contains the desired result
- console.log("Alright");
- alert("Aufgabe 2 gelöst!"); // confirmation
+if (areaContent.includes('get { return player; }') && 'set { player = value; }' && 'get { return monster; }') && 'set { monster = value; }' && 'get { return message; }') && 'set { message = value; }')  { // Desired result
+// desired change, if the result contains the desired result
+console.log("Alright");
+alert("Aufgabe 1 gelöst!"); // confirmation
 } else {
- console.log("Come on");
- alert("Leider nicht korrekt!"); // confirmation
+console.log("Come on");
+alert("Leider nicht korrekt!"); // confirmation
 
- }
- }
+}
+}
 
- function whatIWantToDoWithMyResponseWhenItFails(response) {
- console.log('Yaay Failure');
- console.log(response);
- }
+function whatIWantToDoWithMyResponseWhenItFails(response) {
+console.log('Yaay Failure');
+console.log(response);
+}
 
- });
- });
+});
+});
 
- </script>
- <script>
- $(document).ready(function(){
- $("response").click(function(){
+</script>
+<script>
+$(document).ready(function(){
+$("response").click(function(){
 
- console.log("response")
- });
- });
+console.log("response")
+});
+});
 
- </script>
- </body>
+</script>
+</body>

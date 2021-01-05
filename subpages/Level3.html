@@ -12,46 +12,62 @@
 
 <h1>Level 3: Berechnungen mit Integer</h1>
 <p>
-  Zahlen können nicht nur direkt in die Variable gespeichert werden, es kann auch eine Berechnung durchgeführt werden, dessen Ergebnis dann in einen Integer gespeichert wird.
-  <br /> Es gibt die Operationen Addition, Subtraktion, Multiplikation, Division und Modulo. Je nach Operation sollte man als Datentyp jedoch float oder double verwenden, da bei der Berechnung Kommazahlen rauskommen können.
+  Zahlen können nicht nur direkt in die Variable gespeichert werden, es können auch Berechnungen durchgeführt werden, deren Ergebnis dann in einen Integer gespeichert wird.
+  <br /> Es gibt die Operationen Addition, Subtraktion, Multiplikation, Division und Modulo. Je nach Operation sollte man als Datentyp statt einem integer besser float oder double verwenden, da das Ergebnis eine Kommazahl sein könnte.
   </p>
 <p>
 <b>
   Addition:
 </b><br />
+<i>
+
   int a = 3 + 3;
+</i>
 </p>
 <p>
   <b>
     Subtraktion:
     </b><br />
-  int a = 5 - 3;
+  <i>
+
+    int a = 5 - 3;
+  </i>
   </p>
 <p>
   <b>
     Multiplikation:
   </b><br />
-  int a = 3 * 3;
+  <i>
+    int a = 3 * 3;
+
+  </i>
   </p>
   <p>
     <b>
       Division:
     </b><br />
-    int a = 6 / 2;
+    <i>
+      int a = 6 / 2;
+
+    </i>
     </p>
 <p>
   <b>
     Modulo:
   </b>
   gibt den Restwert einer Division zurück<br />
-  double a = 8 % 3;
+  <i>
+
+    double a = 8 % 3;
+  </i>
+  -> a wäre in diesem Fall 2
   </p>
-  <br />
 <b>
   Aufgabe 1
 </b>
 <p>
   Addiere 5 und 6 und gib das Ergebnis aus.
+  Erinnere dich, wie du in Aufgabe 1 ein Ergebnis ausgegeben hast!
   </p>
   <b>
     Aufgabe 2
@@ -82,9 +98,9 @@ Aufgabe 3
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
-	value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n//Your code goes here							\n			}			\n		}		\n	}',
-	mode : "clike",
-	theme : "ambiance",
+  value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester     \n  {       \n  public class Program        \n    {         \n    public static void Main(string[] args)            \n      {         \n      //Your code goes here                   \n            \n      }     \n    }   \n  }',
+  mode : "clike",
+  theme : "ambiance",
 lineNumbers:true,
  extraKeys: {
         "F11": function(cm) {
@@ -99,72 +115,52 @@ lineNumbers:true,
 
 <script>
 $(document).ready(function(){
-		$("button").click(function(){
+    $("button").click(function(){
 
-		var to_compile = {
-			"LanguageChoice": "1",
-			"Program": editor.getValue(),
-			"Input": "",
-			"CompilerArgs" : ""
-		};
+    var to_compile = {
+      "LanguageChoice": "1",
+      "Program": editor.getValue(),
+      "Input": "",
+      "CompilerArgs" : ""
+    };
 
-		            const url = 'https://rextester.com/rundotnet/api';
-		// Ajax call um Code zu compilen
-		$.ajax({ url, type: 'POST', data: to_compile })
-		  .done(function (data) {
-		    whatIWantToDoWithMyResponseWhenItSucceeds(data);
-		  })
-		  .fail(function (data, err) {
-		    whatIWantToDoWithMyResponseWhenItFails(data);
-		  });
-		// In success case, use compiled result
-		function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
-		  var areaContent = editor.getValue();
-		  console.log(areaContent);
-		  console.log('Yaay Success');
-		  console.log(response);
-		  console.log(response.Result);
+                const url = 'https://rextester.com/rundotnet/api';
+    // Ajax call um Code zu compilen
+    $.ajax({ url, type: 'POST', data: to_compile })
+      .done(function (data) {
+        whatIWantToDoWithMyResponseWhenItSucceeds(data);
+      })
+      .fail(function (data, err) {
+        whatIWantToDoWithMyResponseWhenItFails(data);
+      });
+    // In success case, use compiled result
+    function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+      var areaContent = editor.getValue();
 
-			  if (response.Result.includes('11') && areaContent.includes('5') && areaContent.includes('6')) { // Desired result
-		   // desired change, if the result contains the desired result
-		    console.log("Alright");
-				alert("Aufgabe 1 gelöst!"); // confirmation
-		  } else if (response.Result.includes('13') && areaContent.includes('93') && areaContent.includes('106')) { // Desired result
-
-				// Desired result
-				alert("Aufgabe 2 gelöst!"); // confirmation
-				console.log(editor.value);
-				console.log(areaContent);
-
-			} else if (response.Result.includes('32') && areaContent.includes('4') && areaContent.includes('8')) { // Desired result
-				alert("Aufgabe 3 gelöst!"); // confirmation
-		 } else if (response.Result.includes('5') && areaContent.includes('25') && areaContent.includes('5')) { // Desired result
-       alert("Aufgabe 3 gelöst!"); // confirmation
+        if (response.Result.includes('11') && areaContent.includes('5') && areaContent.includes('6')) { // Desired result
+        alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
+      } else if (response.Result.includes('13') && areaContent.includes('93') && areaContent.includes('106')) { // Desired result
+        alert("Aufgabe 2 gelöst!"); // desired change or output, if the result contains the desired result
+      } else if (response.Result.includes('32') && areaContent.includes('4') && areaContent.includes('8')) { // Desired result
+        alert("Aufgabe 3 gelöst!"); // desired change or output, if the result contains the desired result
+     } else if (response.Result.includes('5') && areaContent.includes('25') && areaContent.includes('5')) { // Desired result
+       alert("Aufgabe 4 gelöst!"); // desired change or output, if the result contains the desired result
     }  else if (response.Result.includes('1') && areaContent.includes('19') && areaContent.includes('3') && areaContent.includes('%')) { // Desired result
-      alert("Aufgabe 3 gelöst!"); // confirmation
+      alert("Aufgabe 5 gelöst!"); // desired change or output, if the result contains the desired result
    } else {
-		    console.log("Come on");
-        alert("Leider nicht korrekt!"); // confirmation
-
-		  }
-		}
-
-		function whatIWantToDoWithMyResponseWhenItFails(response) {
-		  console.log('Yaay Failure');
-		  console.log(response);
-		}
-
-			    });
-		    });
-
-		    </script>
-		    <script>
-		    $(document).ready(function(){
-		        $("response").click(function(){
-
-		      console.log("response")
-		      });
-		    });
-
-		    </script>
+        alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // confirmation
+        }
+        }
+        function whatIWantToDoWithMyResponseWhenItFails(response) {
+          // Here you can write what you want to do if errors are thrown when trying to compile the code
+        }
+        });
+        });
+        </script>
+        <script>
+        $(document).ready(function(){
+            $("response").click(function(){
+            });
+        });
+        </script>
 </body>

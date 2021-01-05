@@ -15,23 +15,6 @@
 <p>
   Wir beginnen nun in einer neuen Klasse das Spiel selbst zu entwickeln.
   </p>
-<b>
-  Aufgabe 1
-</b>
-<p>
-  Einige der Variablentypen kannst du dir aus dem bisher geschriebenen Code heraussuchen.
-<br />  Überlege dir die passenden Variablentypen und erstelle die folgenden Variablen:
-<br />  Attack, defence, currentHitPoint, damage, roundCounter, currName, counter
-<br />  Am Ende der Angabe hast du ein Bild, wie diese Werte am Ende auszusehen haben.
-</p>
-<p>
-  Zusätzlich verwenden wir unsere erstellten Klassen auch als Variablentypen.
-<br />  <i>
-    private Player player; <br />
-    private Monster currentMonster;
-
-  </i>
-  </p>
 <p>
   Unsere bisher geschrieben Variablen waren allesamt “props”, sprich “properties”.
   In C# gibt es neben properties auch fullprops. Der Unterschied ist, dass sich hier den jeweiligen Eigenschaften auch Logik und Funktionen zuweisen lassen.
@@ -39,33 +22,54 @@
 
   </p>
 <i>
+  <p style="margin: 0px;">
+
   private string currName;   <br />
 
   public string CurrName <br />
   {
+  </p>
     <p style="margin: 0px; margin-left: 15px;">
       get { return currName; } <br />
       set { currName = value;  } <br />
 
       </p>
+      <p>
+
   }
+</p>
 </i>
+<p style="margin-bottom: 15px;">
+  Die in Level 4 erstellten Klassen können auch als Variablentypen verwendet werden:
+<i>
+  <p style="margin-bottom: 0px; margin-left: 30px;">
+    private Player player; <br />
+    private Monster currentMonster;
+  </p>
+
+  </i>
+  </p>
 <p>
   Die Werte von Monstern werden sich im Laufe des Spiels ändern. In der ersten Version immer dann, wenn ein Monster besiegt wurde.
   Die Werte des Players werden mit jedem Levelup besser.
-  Die message ist unser liveticker, wo wir Nachrichten über den zugefügten und erhaltenen Schaden erhalten.
-  Aufgabe:
+  Die message ist unser liveticker, wo wir Nachrichten über den zugefügten und erhaltenen Schaden erhalten. <br /> <br />
+  <b>
+
+  Aufgabe: <br/ >
+</b>
   Schreibe ein Monster, einen Player, und eine message als fullprop.
   </p>
-  <div class="pb">
-<img src="Level7.jpg">
+
+<div class="pb">
+  <img src="Level7_2.jpg" alt="abc" class="irgendwas"></img>
 </div>
+
 <button class="button" id="run">Start Code</button><br/><br/>
 <div id="codeeditor"></div>
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
-value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n //Your code goes here 						\n			}			\n		}		\n	}',
+value: 'using System; \n  using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {                 \n //Your code goes here            \n      }     \n    }   \n  }',
 mode : "clike",
 theme : "ambiance",
 lineNumbers:true,
@@ -103,38 +107,24 @@ whatIWantToDoWithMyResponseWhenItFails(data);
 // In success case, use compiled result
 function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
 var areaContent = editor.getValue();
-console.log(areaContent);
-console.log('Yaay Success');
-console.log(response);
-console.log(response.Result);
-
-if (areaContent.includes('get { return player; }') && 'set { player = value; }' && 'get { return monster; }') && 'set { monster = value; }' && 'get { return message; }') && 'set { message = value; }')  { // Desired result
-// desired change, if the result contains the desired result
-console.log("Alright");
-alert("Aufgabe 1 gelöst!"); // confirmation
+if (areaContent.includes('get') && areaContent.includes('return player;') && areaContent.includes('set') && areaContent.includes('value;') && areaContent.includes('return monster;') && areaContent.includes('return message;') && areaContent.includes('message = value;'))  { // Desired result
+  alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
+} else if (areaContent.includes('player}') || !areaContent.includes('value}') ||areaContent.includes('player }') || !areaContent.includes('value }')) {
+    alert("Vergiss nicht den Strichpunkt ;)");
 } else {
-console.log("Come on");
-alert("Leider nicht korrekt!"); // confirmation
-
+alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // desired change or output, if the result contains the desired result
 }
 }
-
 function whatIWantToDoWithMyResponseWhenItFails(response) {
-console.log('Yaay Failure');
-console.log(response);
+  // Here you can write what you want to do if errors are thrown when trying to compile the code
 }
-
 });
 });
-
 </script>
 <script>
 $(document).ready(function(){
 $("response").click(function(){
-
-console.log("response")
 });
 });
-
 </script>
 </body>

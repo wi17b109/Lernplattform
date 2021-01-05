@@ -4,7 +4,7 @@ function load_home(page) {
 }
 
 function download(file){
-	var url="LevelHTMLDokumente.zip";
+	var url="CodeExample.zip";
 	window.open(url, '_blank');
 };
 

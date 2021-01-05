@@ -46,9 +46,9 @@
    <script>
 
    var editor = CodeMirror(document.getElementById("codeeditor"),{
-   	value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n hitpointsBerechnen(5,4,10);// hier wird die Funktion mit Beispielzahlen aufgerufen \n //Your code goes here       \n  xxx xxx xxx(xxx xxx, xxx xxx, xxx xxx) 	\n        dmg = (attack - defence);\n           return xxx;\n       }\n      		}			\n		}		\n	}',
-   	mode : "clike",
-   	theme : "ambiance",
+    value: 'using System; \n  using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {                 \n hitpointsBerechnen(5,4,10);// hier wird die Funktion mit Beispielzahlen aufgerufen \n //Your code goes here       \n  xxx xxx xxx(xxx xxx, xxx xxx, xxx xxx)   \n        dmg = (attack - defence);\n           return xxx;\n       }\n         }     \n    }   \n  }',
+    mode : "clike",
+    theme : "ambiance",
 lineNumbers:true,
  extraKeys: {
         "F11": function(cm) {
@@ -63,59 +63,44 @@ lineNumbers:true,
 
    <script>
    $(document).ready(function(){
-   		$("button").click(function(){
+      $("button").click(function(){
 
-   		var to_compile = {
-   			"LanguageChoice": "1",
-   			"Program": editor.getValue(),
-   			"Input": "",
-   			"CompilerArgs" : ""
-   		};
+      var to_compile = {
+        "LanguageChoice": "1",
+        "Program": editor.getValue(),
+        "Input": "",
+        "CompilerArgs" : ""
+      };
 
-   		            const url = 'https://rextester.com/rundotnet/api';
-   		// Ajax call um Code zu compilen
-   		$.ajax({ url, type: 'POST', data: to_compile })
-   		  .done(function (data) {
-   		    whatIWantToDoWithMyResponseWhenItSucceeds(data);
-   		  })
-   		  .fail(function (data, err) {
-   		    whatIWantToDoWithMyResponseWhenItFails(data);
-   		  });
-   		// In success case, use compiled result
-   		function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
-   		  var areaContent = editor.getValue();
-   		  console.log(areaContent);
-   		  console.log('Yaay Success');
-   		  console.log(response);
-   		  console.log(response.Result);
+                  const url = 'https://rextester.com/rundotnet/api';
+      // Ajax call um Code zu compilen
+      $.ajax({ url, type: 'POST', data: to_compile })
+        .done(function (data) {
+          whatIWantToDoWithMyResponseWhenItSucceeds(data);
+        })
+        .fail(function (data, err) {
+          whatIWantToDoWithMyResponseWhenItFails(data);
+        });
+      // In success case, use compiled result
+      function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
+        var areaContent = editor.getValue();
 
-   			  if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') ) { // Desired result
-   		   // desired change, if the result contains the desired result
-   		    console.log("Alright");
-   				alert("Aufgabe 1 gelöst!"); // confirmation
-   		  } else {
-   		    console.log("Come on");
-          alert("Leider nicht korrekt!"); // confirmation
+          if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') ) { // Desired result
+            alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
+        } else {
+          alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // confirmation
+        }
+      }
 
-   		  }
-   		}
-
-   		function whatIWantToDoWithMyResponseWhenItFails(response) {
-   		  console.log('Yaay Failure');
-   		  console.log(response);
-   		}
-
-   			    });
-   		    });
-
-   		    </script>
-   		    <script>
-   		    $(document).ready(function(){
-   		        $("response").click(function(){
-
-   		      console.log("response")
-   		      });
-   		    });
-
-   		    </script>
+      function whatIWantToDoWithMyResponseWhenItFails(response) {
+      }
+            });
+          });
+          </script>
+          <script>
+          $(document).ready(function(){
+              $("response").click(function(){
+            });
+          });
+          </script>
    </body>

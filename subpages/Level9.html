@@ -41,27 +41,30 @@ if (i == 1) { <br />
 <br />
 } else { <br />
 <br />
-} <br />
+} <br /><br />
 </i>
+In dieser Aufgabe verwenden wir zusätzlich noch "random". <br />
+Random gibt dir eine zufällig generierte Zahl zwischen 0 und der von dir gewählten Zahl. <br />
+  <i>
+    int num = random.Next(10);
+  </i>
 </p>
+<p>
 <b>
-  Aufgabe1:
-  </b>
-<p>
-  Schreibe noch einmal die Funktion hitpointsBerechnen
-  </p>
-<p>
-  Aufgabe2:
-  Wenn der Angriffswert doppelt so hoch ist wie der Verteidigungswert soll ein kritischer Treffer erfolgen
-
-  </p>
+  Aufgabe 1:<br />
+</b>
+  Schreibe noch einmal die Funktion hitpointsBerechnen<br />
+  <b>Aufgabe 2:</b> <br/>
+  Speichere eine zufällig generierte Zahl in die variable int. <br />
+  Wenn deine zufällig generierte Zahl 2 ergibt soll ein kritischer Treffer erfolgen.
+</p>
 <button class="button" id="run">Start Code</button><br/><br/>
   <div id="codeeditor"></div>
 <script>
 
      var editor = CodeMirror(document.getElementById("codeeditor"),{
-     	value: 'using System; \n	using System.Collections.Generic; \n 			using System;\n			using System.Collections.Generic; \n			using System.Linq; \n			using System.Text.RegularExpressions; \n\n			namespace Rextester			\n{				\n	public class Program				\n	{					\n	public static void Main(string[] args)						\n	{									\n hitpointsBerechnen(5,4,10);// hier wird die Funktion mit Beispielzahlen aufgerufen \n //Your code goes here       \n  xxx xxx xxx(xxx xxx, xxx xxx, xxx xxx) 	\n xxx \n     dmg = (2 * attack - defence); \n                   return dmg;  \n xxx \n  dmg = (attack - defence);\n           return xxx;\n       }\n      		}			\n		}		\n	}',
-     	mode : "clike",
+      value: 'using System; \n  using System.Collections.Generic; \n      using System;\n     using System.Collections.Generic; \n      using System.Linq; \n     using System.Text.RegularExpressions; \n\n      namespace Rextester     \n{       \n  public class Program        \n  {         \n  public static void Main(string[] args)            \n  {                 \n hitpointsBerechnen(5,4,10);// hier wird die Funktion mit Beispielzahlen aufgerufen \n //Your code goes here       \n  xxx xxx xxx(xxx xxx, xxx xxx, xxx xxx)   \n xxx \n     dmg = (2 * attack - defence); \n                   return dmg;  \n xxx \n  dmg = (attack - defence);\n           return xxx;\n       }\n          }     \n    }   \n  }',
+      mode : "clike",
 theme : "ambiance",
 lineNumbers:true,
  extraKeys: {
@@ -98,43 +101,26 @@ whatIWantToDoWithMyResponseWhenItFails(data);
 // In success case, use compiled result
 function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
 var areaContent = editor.getValue();
-console.log(areaContent);
-console.log('Yaay Success');
-console.log(response);
-console.log(response.Result);
+if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') && areaContent.includes('if (int == 2)')) { // Desired result
 
-if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') && areaContent.includes('if (attack > defence)')) { // Desired result
-// desired change, if the result contains the desired result
-console.log("Alright");
-alert("Aufgabe 2 gelöst!"); // confirmation
+  alert("Aufgabe 2 gelöst!"); // desired change or output, if the result contains the desired result
 
 } else if (areaContent.includes('public int hitpointsBerechnen(') && areaContent.includes('return dmg') ) { // Desired result
-// desired change, if the result contains the desired result
-console.log("Alright");
-alert("Aufgabe 1 gelöst!"); // confirmation
+  alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
 } else {
-console.log("Come on");
-alert("Leider nicht korrekt!"); // confirmation
-
+alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // confirmation
 }
 }
 
 function whatIWantToDoWithMyResponseWhenItFails(response) {
-console.log('Yaay Failure');
-console.log(response);
 }
-
+  });
 });
-});
-
 </script>
 <script>
 $(document).ready(function(){
-$("response").click(function(){
-
-console.log("response")
+    $("response").click(function(){
+  });
 });
-});
-
 </script>
 </body>
