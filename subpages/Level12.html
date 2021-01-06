@@ -75,7 +75,7 @@ Vervollständige die Funktion.
 <script>
 
 var editor = CodeMirror(document.getElementById("codeeditor"),{
-value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester\n{\n  public class Program\n  {\n    public static void Main(string[] args)\n    {\n      //Your code goes here\n    }\n\n    private int battle()\n    {\n      int roundCounter = 0;\n      int hp = 0;\n\n      xxxx (xxxxx x xxxxx)\n      {\n        xxxxx x:\n          hp = 1;\n          break;\n        xxxxxx x:\n          hp = 2;\n          break;\n      }\n      roundCounter++;\n      return hp;\n    }\n  }\n}',
+value: 'using System; \nusing System.Collections.Generic; \nusing System;\nusing System.Collections.Generic; \nusing System.Linq; \nusing System.Text.RegularExpressions; \n\nnamespace Rextester\n{\n  public class Program\n  {\n    public static void Main(string[] args)\n    {\n      //Your code goes here\n    }\n\n    private void battle()\n    {\n      int roundCounter = 0;\n      int hpMonster = 8;\n      int hpPlayer = 9;\n      xxxx (xxxxx x xxxxx)\n      {\n        xxxxx x:\n          hpMonster --;\n          break;\n        xxxxxx x:\n          hpPlayer--;\n          break;\n      }\n      roundCounter++;\n    }\n  }\n}',
 mode : "clike",
 theme : "ambiance",
 lineNumbers:true,
@@ -113,38 +113,25 @@ whatIWantToDoWithMyResponseWhenItFails(data);
 // In success case, use compiled result
 function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
 var areaContent = editor.getValue();
-console.log(areaContent);
-console.log('Yaay Success');
-console.log(response);
-console.log(response.Result);
 
-if (areaContent.includes('get { return player; }') && 'set { player = value; }' && 'get { return monster; }') && 'set { monster = value; }' && 'get { return message; }') && 'set { message = value; }')  { // Desired result
-// desired change, if the result contains the desired result
-console.log("Alright");
-alert("Aufgabe 1 gelöst!"); // confirmation
+if (areaContent.includes('case 0') && areaContent.includes('case 1') && (areaContent.includes('switch (roundCounter % 2)') || areaContent.includes('switch(roundCounter % 2)')))
+{ // Desired result
+ 
+    alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
 } else {
-console.log("Come on");
-alert("Leider nicht korrekt!"); // confirmation
-
-}
-}
-
-function whatIWantToDoWithMyResponseWhenItFails(response) {
-console.log('Yaay Failure');
-console.log(response);
-}
-
-});
-});
-
+  alert("Leider nicht korrekt!\nDein Output lautet: " + response.Result ); // confirmation
+  }
+  }
+  function whatIWantToDoWithMyResponseWhenItFails(response) {
+    // Here you can write what you want to do if errors are thrown when trying to compile the code
+  }
+  });
+  });
 </script>
 <script>
 $(document).ready(function(){
 $("response").click(function(){
-
-console.log("response")
 });
 });
-
 </script>
 </body>
