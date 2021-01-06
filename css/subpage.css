@@ -1,9 +1,0 @@
-#ol{
-  list-style: disc;
-}
-
-.leveltabelle{
-  /* die Tabelle wo die einzelnen Levels angezeigt werden */
-  position: sticky top;
-  display: contents;
-}
