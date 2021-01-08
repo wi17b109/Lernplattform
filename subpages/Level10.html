@@ -7,6 +7,7 @@
 <script src="../plugin/codemirror/lib/codemirror.js"></script>
 <script src="../plugin/codemirror/mode/clike/clike.js"></script>
 <link rel="stylesheet" href="../css/content.css">
+<link rel="stylesheet" href="../css/code.css">
 <script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
 <link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
 <h1>
@@ -17,11 +18,10 @@
   Die in einem Array enthaltenen Variablen, die auch als Elemente des Arrays bezeichnet werden, weisen alle denselben Typ auf. Dieser Typ wird als Elementtyp des Arrays bezeichnet.
   Arraytypen sind Verweistypen, und die Deklaration einer Arrayvariablen reserviert Speicher für einen Verweis auf eine Arrayinstanz. Die tatsächlichen Arrayinstanzen werden unter Verwendung des new-Operators zur Laufzeit dynamisch erstellt. Der new-Vorgang legt die Länge der neuen Arrayinstanz fest, die dann für die Lebensdauer der Instanz beibehalten wird. Die Indizes der Arrayelemente reichen von 0 bis Length - 1. Der new-Operator initialisiert die Elemente eines Arrays automatisch mit ihren Standardwerten. Dieser lautet z.B. für alle numerischen Typen 0 und für alle Verweistypen null.<br /><br />
   Ein Array wird folgendermaßen initialisiert:<br />
-  Datentyp[] name=new Datentyp[Arraygröße]:<br />
+  <span class=variable>Datentyp[] <span class=name>name= <span class=value>new Datentyp[Arraygröße]:</span></span></span><br /><br />
+
   <b>Beispiel:</b><br />
-  <i>
-  int[] zahl = new int[2];<br />
-</i>
+  <span class=variable>int[] <span class=name>zahl = <span class=value>new int[2];</span></span></span><br /><br />
 
 Um dem Array Werte zuzuweisen, wird entweder der Konstruktor der Klasse verwendet z.B. <br />
 <i>

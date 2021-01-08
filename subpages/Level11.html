@@ -7,6 +7,7 @@
 <script src="../plugin/codemirror/lib/codemirror.js"></script>
 <script src="../plugin/codemirror/mode/clike/clike.js"></script>
 <link rel="stylesheet" href="../css/content.css">
+<link rel="stylesheet" href="../css/code.css">
 <script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
 <link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
 <h1>
@@ -25,8 +26,22 @@ For-Schleifen können beispielsweise verwendet werden, um Arrays zu befüllen. N
 
 Im folgenden Beispiel wird ein Array aus int-Elementen erstellt. Anschließend wird das Array initialisiert und die Inhalte des Arrays werden gedruckt.
 
-I wird als mitlaufende Zahl in der for-Schleife für Berechnungen herangezogen.
+i wird als mitlaufende Zahl in der for-Schleife für Berechnungen herangezogen.
 </p>
+
+<p>Beispiel für die Initalisierung einer For-Schleife:<br/>
+
+<span class=name>for </span>(<span class=variable>Laufvariable; </span><span class=iftrue>Laufgrund; </span><span class=ifelse>Erhögung/Senkung der Laufvariable</span> ){<br/>
+  <span class=comment style="margin-left: 15px">//Was die Schleife machen soll</span><br/>
+}
+<br/><br/>
+
+<span class=name>for </span>(<span class=variable>int i = 0;</span><span class=iftrue> i < 5;</span><span class=ifelse> i++</span> ){<br/>
+  <span class=comment style="margin-left: 15px">//Was die Schleife machen soll</span><br/>
+}
+</p>
+
+<br/><br/>
 <p  style="margin: 0px;">
   <i>
     int[] a = new int [x]; <br />
@@ -56,7 +71,7 @@ I wird als mitlaufende Zahl in der for-Schleife für Berechnungen herangezogen.
 
   Aufgabe 1:<br />
 </b>
-  Befülle ein 10er Array mit 10 verschiedenen Monstern.<br />
+  Befülle ein 10er Array mit 10 verschiedenen Monstern.<br /><br/>
     <b>
       Aufgabe 2:<br />
     </b>

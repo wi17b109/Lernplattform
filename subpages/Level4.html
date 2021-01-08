@@ -7,6 +7,7 @@
 <script src="../plugin/codemirror/lib/codemirror.js"></script>
 <script src="../plugin/codemirror/mode/clike/clike.js"></script>
 <link rel="stylesheet" href="../css/content.css">
+<link rel="stylesheet" href="../css/code.css">
 <script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
 <link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
 <h1>Level 4: Klassen</h1>
@@ -16,23 +17,21 @@
 <i>
   <p>
 
-  class Programm { <br />
-    // hier wird der Code geschrieben <br />
+  <span class=master>class </span><span class=name>Programm</span> { <br />
+    <span class=comment>// hier wird der Code geschrieben</span> <br />
   } <br/>
 </p>
 </i>
 <p>
   Wir haben bisher nur "fields" (Umgebungen) verwendet.<br>
-  Wenn wir unsere Felder zu properties erweitern müssen wir noch getter und setter hinzufügen.<br>
-<i>
+  Wenn wir unsere Felder zu properties erweitern müssen wir noch getter und setter hinzufügen.<br><br/>
 
-  int maxHitPoints;<br>
-</i>
-  wird also zu<br>
-  <i>
 
-    public int maxHitPoints {get;set;}<br>
-  </i>
+  <span class=variable>int </span><span class=name>maxHitPoints;</span><br><br/>
+
+  wird also zu<br><br/>
+
+    <span class=properties>public </span><span class=variable>int </span><span class=name>maxHitPoints {get;set;}</span><br>
 <br>
   Aber was sind properties, getter und setter überhaupt und wieso brauchen wir sie?<br>
   get und set sind praktisch zwei verschiedene Methoden. Lesen (get) und schreiben (set).<br>
@@ -122,12 +121,11 @@ whatIWantToDoWithMyResponseWhenItFails(data);
 });
 // In success case, use compiled result
 function whatIWantToDoWithMyResponseWhenItSucceeds(response) {
-var areaContent = editor.getValue();
-
-if (areaContent.includes('int maxHitPoints') && areaContent.includes('int currHitPoints') && areaContent.includes('int currLvl') && areaContent.includes('int attack') && areaContent.includes('int defense') && areaContent.includes('string name') ) { // Desired result
-  alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
-} else if (areaContent.includes('public int maxHitPoints') && areaContent.includes('public int currHitPoints') && area.includes('get;') && areaContent.includes('set;') && areaContent.includes('public int currLvl') && areaContent.includes('public int attack') && areaContent.includes('public int defense') && areaContent.includes('public string name') ) { // Desired result
+    var areaContent = editor.getValue();
+if (areaContent.includes('public int maxHitPoints') && areaContent.includes('public int currHitPoints') && areaContent.includes('get;') && areaContent.includes('set;') && areaContent.includes('public int currLvl') && areaContent.includes('public int attack') && areaContent.includes('public int defense') && areaContent.includes('public string name') ) { // Desired result
 alert("Aufgabe 2 gelöst!"); // desired change or output, if the result contains the desired result
+} else if (areaContent.includes('int maxHitPoints') && areaContent.includes('int currHitPoints') && areaContent.includes('int currLvl') && areaContent.includes('int attack') && areaContent.includes('int defense') && areaContent.includes('string name') ) { // Desired result
+  alert("Aufgabe 1 gelöst!"); // desired change or output, if the result contains the desired result
 } else if (!areaContent.includes(');')) {
     alert("Vergiss nicht den Strichpunkt ;)");
 } else {

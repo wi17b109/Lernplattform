@@ -1,0 +1,70 @@
+.variable{
+	overflow: hidden;
+	font-weight: bold;
+	color:red;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.name{
+	color:black;
+	overflow: hidden;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.value{
+	overflow: hidden;
+	color: green;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.properties{
+	overflow: hidden;
+	color: blue;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.parameter{
+	overflow: hidden;
+	color: #6b5b95;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.comment{
+	overflow: hidden;
+	color: darkgray;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.master{
+	overflow: hidden;
+	color: orange;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.iftrue{
+	overflow: hidden;
+	color: green;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.ifelse{
+	overflow: hidden;
+	color: #feb236;
+	font-style: italic;
+	font-family: Tahoma;
+}
+
+.iffalse{
+	overflow: hidden;
+	color: red;
+	font-style: italic;
+	font-family: Tahoma;
+}

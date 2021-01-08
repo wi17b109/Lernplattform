@@ -7,6 +7,7 @@
 <script src="../plugin/codemirror/lib/codemirror.js"></script>
 <script src="../plugin/codemirror/mode/clike/clike.js"></script>
 <link rel="stylesheet" href="../css/content.css">
+<link rel="stylesheet" href="../css/code.css">
 <script src="../plugin/codemirror/addon/display/fullscreen.js"></script>
 <link rel="stylesheet" href="../plugin/codemirror/addon/display/fullscreen.css">
 <h1>
@@ -21,11 +22,11 @@
 <p>
   <i>
 
-  if (condition == true) { <br />
+ <span class=iftrue> if (condition == true) { <br />
   <br />
-} else {<br />
+}</span><span class=iffalse> else {<br />
 <br />
-}
+}</span>
 </i>
 </p>
 <p>
@@ -35,25 +36,24 @@
 <p>
   <i>
 
-if (i == 1) { <br />
+<span class=iftrue>if (i == 1) { </span><br />
 <br />
-} else if(i == 2) { <br />
+}<span class=ifelse> else if(i == 2) { <br />
 <br />
-} else { <br />
+}</span><span class=iffalse> else { <br />
 <br />
-} <br /><br />
+} </span><br /><br />
 </i>
-In dieser Aufgabe verwenden wir zusätzlich noch "random". <br />
-Random gibt dir eine zufällig generierte Zahl zwischen 0 und der von dir gewählten Zahl. <br />
-  <i>
-    int num = random.Next(10);
-  </i>
+In dieser Aufgabe verwenden wir zusätzlich noch <span style="display:inline;font-weight: bold">"random". </span><br />
+Random gibt dir eine zufällig generierte Zahl zwischen 0 und der von dir gewählten Zahl. <br /><br />
+  <i style="font-weight: bold">
+    int num = random.Next(10); </i><span class=comment>//Gibt dir eine Zufällige Zahl von 1-10 zurück</span>
 </p>
 <p>
 <b>
   Aufgabe 1:<br />
 </b>
-  Schreibe noch einmal die Funktion hitpointsBerechnen<br />
+  Schreibe noch einmal die Funktion hitpointsBerechnen<br /><br/>
   <b>Aufgabe 2:</b> <br/>
   Speichere eine zufällig generierte Zahl in die variable int. <br />
   Wenn deine zufällig generierte Zahl 2 ergibt soll ein kritischer Treffer erfolgen.
