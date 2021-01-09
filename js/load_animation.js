@@ -1,12 +1,6 @@
-
 function load_home(page) {
 	document.getElementById("Inhalt"+page).innerHTML='<object class="object-fit_container" type="text/html" data="Level'+page+'.html" ></object>';
 }
-
-function download(file){
-	var url="CodeExample.zip";
-	window.open(url, '_blank');
-};
 
 function toggleDiv(divNum) {
 	$("#close").hide();
@@ -33,3 +27,8 @@ $(document).ready(function() {
 		$(this).hide()
 	})
 });
+
+function download(file){
+	var url="CodeExample.zip";
+	window.open(url, '_blank');
+};
